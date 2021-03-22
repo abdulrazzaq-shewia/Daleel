@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -19,6 +20,10 @@ class DetailPage extends StatelessWidget {
     this.phone,
     this.image,
   });
+
+  Future phoneCall(String phoneNumber)async{
+    await FlutterPhoneDirectCaller.directCall(phoneNumber);
+  }
   @override
   Widget build(BuildContext context) {
      return Directionality(
@@ -151,9 +156,14 @@ class DetailPage extends StatelessWidget {
                         // ignore: deprecated_member_use
                         RaisedButton(
                           onPressed: () async => {
-                            phone,
+                            phoneCall(phone),
                           },
-                          child: Text(phone),
+                          child: Text("إتصال",
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.green,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: "Cairo"),),
                         ),
                       ],
                     ),

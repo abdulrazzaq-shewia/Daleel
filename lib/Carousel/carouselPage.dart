@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class CarouselPage extends StatelessWidget {
   static const routName = "CarouselPage";
 
-  void Launch(command) async {
-    if (await canLaunch(command)) {
-      await launch(command);
-    } else {
-      print("No Launch $command");
-    }
+
+  Future phoneCall(String phoneNumber)async{
+    await FlutterPhoneDirectCaller.directCall(phoneNumber);
   }
 
   @override
@@ -78,8 +76,9 @@ class CarouselPage extends StatelessWidget {
                             RaisedButton(
                               elevation: 4,
 
-                              onPressed: () {
-                                Launch(myAds["phoneNumber"]);
+                              onPressed: () async {
+                                //Launch(myAds["phoneNumber"]);
+                               await  phoneCall(myAds["phoneNumber"]);
                               },
                               child: Text(
                                 "إتصال",
@@ -110,7 +109,7 @@ class CarouselPage extends StatelessWidget {
                                 onPressed: () {
                                   RenderBox box = context.findRenderObject();
                                   Share.share(
-                                    myAds["title"],
+                                    myAds["title"]+"\n"+"https://www.youtube.com/watch?v=3IuVXqb3VNY&list=PL4pYlnxrTLmaa0WdCwHttEzISpCxmOiou&index=89&t=52s",
                                     subject: myAds["phoneNumber"],
                                     sharePositionOrigin:
                                         box.localToGlobal(Offset.zero) &
