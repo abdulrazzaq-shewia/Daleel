@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "60657944455",
+    "project_id": "daleey-yemeni",
+    "storage_bucket": "daleey-yemeni.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:60657944455:android:e77b66ede7f10420af7522",
+        "android_client_info": {
+          "package_name": "com.marzouq.daleel_yemen_cairo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "60657944455-hmkt5nkil7julg1923jea4h5eaho56cg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.marzouq.daleel_yemen_cairo",
+            "certificate_hash": "0e34bced6be391e61f7542b9f81acf489dd3ea91"
+          }
+        },
+        {
+          "client_id": "60657944455-j002526epbhr4gdld0dfb7hhjs03bap3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdNQBN-DIw_5zYMargi5pHLQ9dt9nKyVM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "60657944455-j002526epbhr4gdld0dfb7hhjs03bap3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
