@@ -22,7 +22,7 @@ class CarouselPage extends StatelessWidget {
         appBar: AppBar(
           title: Center(
             child: Text(
-              "تفاصيل ",
+              "تفاصيل الاعلانات",
               style: TextStyle(
                   fontSize: 18,
                   color: Colors.white,
