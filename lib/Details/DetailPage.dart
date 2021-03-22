@@ -163,7 +163,7 @@ class DetailPage extends StatelessWidget {
                         Row(
                           children: [
                             SizedBox(width: 15,),
-                            // Icon(Icons.share,color: Colors.deepPurple),
+                            Icon(Icons.share,color: Colors.deepPurple),
                             SizedBox(width: 15,),
                             // ignore: deprecated_member_use
                             RaisedButton(
