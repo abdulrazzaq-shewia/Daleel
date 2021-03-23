@@ -21,12 +21,13 @@ class DetailPage extends StatelessWidget {
     this.image,
   });
 
-  Future phoneCall(String phoneNumber)async{
+  Future phoneCall(String phoneNumber) async {
     await FlutterPhoneDirectCaller.directCall(phoneNumber);
   }
+
   @override
   Widget build(BuildContext context) {
-     return Directionality(
+    return Directionality(
         textDirection: TextDirection.rtl,
         child: Scaffold(
           appBar: AppBar(
@@ -125,122 +126,125 @@ class DetailPage extends StatelessWidget {
                         SizedBox(
                           width: 20,
                         ),
-                        Text(
-                          location,
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w800,
-                              fontFamily: "Cairo"),
-                        ),
+                       Container(
+                         padding: EdgeInsets.all(10),
+                         color: Colors.green,
+                         child: RichText(text: TextSpan(children: <TextSpan>[
+                           TextSpan(text:
+                             location,
+                             style: TextStyle(
+                                 fontSize: 15,
+                                 color: Colors.white,
+                                 fontWeight: FontWeight.w800,
+                                 fontFamily: "Cairo"),
+                           ),
+                         ])),
+                       )
                       ],
                     ),
-
                     SizedBox(
-                      height: 15,
+                      height: 220,
                     ),
+                    Container(
+                      height: 50,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
 
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: 40,
-                        ),
-                        // Icon(
-                        //   Icons.phone,
-                        //   color: Colors.green,
-                        // ),
-                        SizedBox(
-                          width: 20,
-                        ),
+                       children: [ Row(
+                         children: [
+                           SizedBox(
+                             width: 20,
+                           ),
 
-                        // ignore: deprecated_member_use
-                        RaisedButton(
-                          onPressed: () async => {
-                            phoneCall(phone),
-                          },
-                          child: Text("إتصال",
-                            style: TextStyle(
-                                fontSize: 18,
-                                color: Colors.green,
-                                fontWeight: FontWeight.w800,
-                                fontFamily: "Cairo"),),
-                        ),
-                      ],
+                           // ignore: deprecated_member_use
+                           RaisedButton(
+                             elevation: 4,
+
+                             onPressed: () async => {
+                               phoneCall(phone),
+                             },
+                             child: Text(
+                               "إتصال",
+                               style: TextStyle(
+                                   fontSize: 16,
+                                   color: Colors.green,
+                                   fontWeight: FontWeight.w800,
+                                   fontFamily: "Cairo"),
+                             ),
+                           ),
+
+                           Row(
+                             children: [
+                               // Icon(Icons.share,color: Colors.deepPurple),
+                               SizedBox(
+                                 width: 15,
+                               ),
+                               // ignore: deprecated_member_use
+                               RaisedButton(
+                                   child: Text(
+                                     "مشاركة",
+                                     style: TextStyle(
+                                         fontSize: 16,
+                                         color: Colors.white,
+                                         fontWeight: FontWeight.w800,
+                                         fontFamily: "Cairo"),
+                                   ),
+                                   color: Colors.blue,
+                                   elevation: 4,
+                                   onPressed: () {
+                                     RenderBox box = context.findRenderObject();
+                                     Share.share(
+                                       name + "\n " + job + "\n " + phone,
+                                       subject: job,
+                                       sharePositionOrigin:
+                                       box.localToGlobal(Offset.zero) &
+                                       box.size,
+                                     );
+                                   }),
+                             ],
+                           ),
+
+                           Row(
+                             children: [
+                               SizedBox(
+                                 width: 15,
+                               ),
+                               // Icon(
+                               //   Icons.error_outline,
+                               //   color: Colors.deepPurple,
+                               // ),
+
+                               Text(
+                                 "للشكاوى",
+                                 style: TextStyle(
+                                     fontSize: 16,
+                                     color: Colors.white,
+                                     fontWeight: FontWeight.w800,
+                                     fontFamily: "Cairo"),
+                               ),
+                               // SizedBox(
+                               //   width: 5,
+                               // ),
+                               // ignore: deprecated_member_use
+                               IconButton(
+
+                                 icon: CircleAvatar(
+                                   child: Image.asset(
+                                       "assets/images/whatsapp.png"),
+                                   radius: 30,
+                                 ),
+                                 onPressed: () {
+                                   launchWhatsapp(
+                                       number: "0201557772228",
+                                       message: "تقديم شكوى بخصوص :" + "\n " + name + "\n ");
+                                 },
+                               ),
+                             ],
+                           ),
+                         ],
+                       ),],
+                      ),
                     ),
-                    SizedBox(height: 60,),
-                    Row(
-                      children: [
-                        Row(
-                          children: [
-                            SizedBox(width: 40,),
-                            // Icon(Icons.share,color: Colors.deepPurple),
-                            SizedBox(width: 15,),
-                            // ignore: deprecated_member_use
-                            RaisedButton(
-                                child: Text("مشاركة",
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w800,
-                                      fontFamily: "Cairo"),),
-                                color: Colors.blue,
-                                elevation: 4,
-                                onPressed: () {
-                                  RenderBox box = context.findRenderObject();
-                                  Share.share(
-                                    name + "\n " + job +"\n "+phone,
-                                    subject:job,
-                                    sharePositionOrigin:
-                                    box.localToGlobal(Offset.zero) &
-                                    box.size,
-                                  );
-                                }),
-                          ],
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Row(
-                          children: [
-                            SizedBox(
-                              width: 20,
-                            ),
-                            // Icon(
-                            //   Icons.error_outline,
-                            //   color: Colors.deepPurple,
-                            // ),
-                            SizedBox(
-                              width: 30,
-                            ),
-                            Text(
-                              "للشكاوى",
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w800,
-                                  fontFamily: "Cairo"),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            // ignore: deprecated_member_use
-                            IconButton(
-
-                              icon: CircleAvatar(
-                                child: Image.asset("assets/images/whatsapp.png"),
-                                radius: 30,
-                              ),
-                              onPressed: () {
-                                launchWhatsapp(
-                                    number: "0201557772228",
-                                    message: "مرحبا دكتور");
-                              },
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-
                   ],
                 ),
                 // ignore: deprecated_member_use
