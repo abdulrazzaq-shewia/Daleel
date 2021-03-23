@@ -34,62 +34,63 @@ class ItemDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       child: Card(
+
         color: Colors.orange,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         elevation: 7,
         margin: EdgeInsets.all(5),
-        child: Column(
+        child: Row(
+
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+            SizedBox(
+              width: 20,
+            ),
+            CircleAvatar(
+              child: Image.network(image),
+              radius: 35,
+            ),
+            SizedBox(
+              width: 20,
+            ),
+            Column(
               children: [
-                CircleAvatar(
-                  child: Image.network(image),
-                  radius: 35,
-                ),
-                Column(
-                  children: [
-                    Row(
-                      children: [
-                        Icon(Icons.person, color: Colors.deepPurple),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Text(
-                          name,
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w800,
-                              fontFamily: "Cairo"),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.work,
-                          color: Colors.deepPurple,
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Text(
-                          job,
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w800,
-                              fontFamily: "Cairo"),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                Icon(Icons.person, color: Colors.white),
                 SizedBox(
-                  width: 10,
+                  width: 20,
+                ),
+                Icon(
+                  Icons.work,
+                  color: Colors.white ,
+                ),
+
+              ],
+            ),
+            SizedBox(
+              width: 20,
+            ),
+            Column(
+              children: [
+                Text(
+                  name,
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w800,
+                      fontFamily: "Cairo"),
+                ),
+
+                Text(
+                  job,
+                  style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w800,
+                      fontFamily: "Cairo"),
                 ),
               ],
+            ),
+            SizedBox(
+              width: 10,
             ),
           ],
         ),

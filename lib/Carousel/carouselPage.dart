@@ -22,7 +22,7 @@ class CarouselPage extends StatelessWidget {
         appBar: AppBar(
           title: Center(
             child: Text(
-              "تفاصيل الاعلانات",
+              "تفاصيل",
               style: TextStyle(
                   fontSize: 18,
                   color: Colors.white,
@@ -98,7 +98,7 @@ class CarouselPage extends StatelessWidget {
                             SizedBox(width: 15,),
                             // ignore: deprecated_member_use
                             RaisedButton(
-                                child: Text("مشاركة الإعلان",
+                                child: Text("مشاركة",
                                   style: TextStyle(
                                       fontSize: 18,
                                       color: Colors.white,
@@ -109,7 +109,7 @@ class CarouselPage extends StatelessWidget {
                                 onPressed: () {
                                   RenderBox box = context.findRenderObject();
                                   Share.share(
-                                    myAds["title"]+"\n"+"https://www.youtube.com/watch?v=3IuVXqb3VNY&list=PL4pYlnxrTLmaa0WdCwHttEzISpCxmOiou&index=89&t=52s",
+                                    myAds["title"]+"\n"+"رابط التطبيق",
                                     subject: myAds["phoneNumber"],
                                     sharePositionOrigin:
                                         box.localToGlobal(Offset.zero) &

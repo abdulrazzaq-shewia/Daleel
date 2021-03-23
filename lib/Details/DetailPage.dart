@@ -70,7 +70,7 @@ class DetailPage extends StatelessWidget {
                         ),
                         Icon(
                           Icons.person,
-                          color: Colors.deepPurple,
+                          color: Colors.white,
                         ),
                         SizedBox(
                           width: 20,
@@ -95,7 +95,7 @@ class DetailPage extends StatelessWidget {
                         ),
                         Icon(
                           Icons.home_repair_service,
-                          color: Colors.deepPurple,
+                          color: Colors.white,
                         ),
                         SizedBox(
                           width: 20,
@@ -120,7 +120,7 @@ class DetailPage extends StatelessWidget {
                         ),
                         Icon(
                           Icons.location_on_outlined,
-                          color: Colors.deepPurple,
+                          color: Colors.white,
                         ),
                         SizedBox(
                           width: 20,
@@ -143,12 +143,12 @@ class DetailPage extends StatelessWidget {
                     Row(
                       children: [
                         SizedBox(
-                          width: 20,
+                          width: 40,
                         ),
-                        Icon(
-                          Icons.phone,
-                          color: Colors.deepPurple,
-                        ),
+                        // Icon(
+                        //   Icons.phone,
+                        //   color: Colors.green,
+                        // ),
                         SizedBox(
                           width: 20,
                         ),
@@ -172,8 +172,8 @@ class DetailPage extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            SizedBox(width: 15,),
-                            Icon(Icons.share,color: Colors.deepPurple),
+                            SizedBox(width: 40,),
+                            // Icon(Icons.share,color: Colors.deepPurple),
                             SizedBox(width: 15,),
                             // ignore: deprecated_member_use
                             RaisedButton(
@@ -210,7 +210,7 @@ class DetailPage extends StatelessWidget {
                             //   color: Colors.deepPurple,
                             // ),
                             SizedBox(
-                              width: 20,
+                              width: 30,
                             ),
                             Text(
                               "للشكاوى",
@@ -221,7 +221,7 @@ class DetailPage extends StatelessWidget {
                                   fontFamily: "Cairo"),
                             ),
                             SizedBox(
-                              width: 20,
+                              width: 5,
                             ),
                             // ignore: deprecated_member_use
                             IconButton(
