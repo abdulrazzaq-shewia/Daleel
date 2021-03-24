@@ -64,185 +64,187 @@ class DetailPage extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Icon(
-                          Icons.person,
-                          color: Colors.white,
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Text(
-                          name,
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w800,
-                              fontFamily: "Cairo"),
-                        ),
-                      ],
+                    Container(
+                      margin: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.person,
+                            color: Colors.white,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            name,
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: "Cairo"),
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(
                       height: 15,
                     ),
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Icon(
-                          Icons.home_repair_service,
-                          color: Colors.white,
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Text(
-                          job,
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w800,
-                              fontFamily: "Cairo"),
-                        ),
-                      ],
+                    Container(
+                      margin: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.home_repair_service,
+                            color: Colors.white,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            job,
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: "Cairo"),
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(
                       height: 15,
                     ),
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Icon(
-                          Icons.location_on_outlined,
-                          color: Colors.white,
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                       Container(
-                         padding: EdgeInsets.all(10),
-                         color: Colors.green,
-                         child: RichText(text: TextSpan(children: <TextSpan>[
-                           TextSpan(text:
-                             location,
-                             style: TextStyle(
-                                 fontSize: 15,
-                                 color: Colors.white,
-                                 fontWeight: FontWeight.w800,
-                                 fontFamily: "Cairo"),
-                           ),
-                         ])),
-                       )
-                      ],
+                    Container(
+                      margin: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.location_on_outlined,
+                            color: Colors.white,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Container(
+                            width: 250,
+                            padding: EdgeInsets.all(5),
+                            color: Colors.green,
+                            child: Text(
+                              location,
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w800,
+                                  fontFamily: "Cairo"),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(
-                      height: 220,
+                      height: 180,
                     ),
                     Container(
                       height: 50,
                       child: ListView(
                         scrollDirection: Axis.horizontal,
+                        children: [
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: 20,
+                              ),
 
-                       children: [ Row(
-                         children: [
-                           SizedBox(
-                             width: 20,
-                           ),
+                              // ignore: deprecated_member_use
+                              RaisedButton(
+                                elevation: 4,
+                                onPressed: () async => {
+                                  phoneCall(phone),
+                                },
+                                child: Text(
+                                  "إتصال",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.green,
+                                      fontWeight: FontWeight.w800,
+                                      fontFamily: "Cairo"),
+                                ),
+                              ),
 
-                           // ignore: deprecated_member_use
-                           RaisedButton(
-                             elevation: 4,
+                              Row(
+                                children: [
+                                  // Icon(Icons.share,color: Colors.deepPurple),
+                                  SizedBox(
+                                    width: 15,
+                                  ),
+                                  // ignore: deprecated_member_use
+                                  RaisedButton(
+                                      child: Text(
+                                        "مشاركة",
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w800,
+                                            fontFamily: "Cairo"),
+                                      ),
+                                      color: Colors.blue,
+                                      elevation: 4,
+                                      onPressed: () {
+                                        RenderBox box =
+                                            context.findRenderObject();
+                                        Share.share(
+                                          name + "\n " + job + "\n " + phone,
+                                          subject: job,
+                                          sharePositionOrigin:
+                                              box.localToGlobal(Offset.zero) &
+                                                  box.size,
+                                        );
+                                      }),
+                                ],
+                              ),
 
-                             onPressed: () async => {
-                               phoneCall(phone),
-                             },
-                             child: Text(
-                               "إتصال",
-                               style: TextStyle(
-                                   fontSize: 16,
-                                   color: Colors.green,
-                                   fontWeight: FontWeight.w800,
-                                   fontFamily: "Cairo"),
-                             ),
-                           ),
+                              Row(
+                                children: [
+                                  SizedBox(
+                                    width: 15,
+                                  ),
+                                  // Icon(
+                                  //   Icons.error_outline,
+                                  //   color: Colors.deepPurple,
+                                  // ),
 
-                           Row(
-                             children: [
-                               // Icon(Icons.share,color: Colors.deepPurple),
-                               SizedBox(
-                                 width: 15,
-                               ),
-                               // ignore: deprecated_member_use
-                               RaisedButton(
-                                   child: Text(
-                                     "مشاركة",
-                                     style: TextStyle(
-                                         fontSize: 16,
-                                         color: Colors.white,
-                                         fontWeight: FontWeight.w800,
-                                         fontFamily: "Cairo"),
-                                   ),
-                                   color: Colors.blue,
-                                   elevation: 4,
-                                   onPressed: () {
-                                     RenderBox box = context.findRenderObject();
-                                     Share.share(
-                                       name + "\n " + job + "\n " + phone,
-                                       subject: job,
-                                       sharePositionOrigin:
-                                       box.localToGlobal(Offset.zero) &
-                                       box.size,
-                                     );
-                                   }),
-                             ],
-                           ),
-
-                           Row(
-                             children: [
-                               SizedBox(
-                                 width: 15,
-                               ),
-                               // Icon(
-                               //   Icons.error_outline,
-                               //   color: Colors.deepPurple,
-                               // ),
-
-                               Text(
-                                 "للشكاوى",
-                                 style: TextStyle(
-                                     fontSize: 16,
-                                     color: Colors.white,
-                                     fontWeight: FontWeight.w800,
-                                     fontFamily: "Cairo"),
-                               ),
-                               // SizedBox(
-                               //   width: 5,
-                               // ),
-                               // ignore: deprecated_member_use
-                               IconButton(
-
-                                 icon: CircleAvatar(
-                                   child: Image.asset(
-                                       "assets/images/whatsapp.png"),
-                                   radius: 30,
-                                 ),
-                                 onPressed: () {
-                                   launchWhatsapp(
-                                       number: "0201557772228",
-                                       message: "تقديم شكوى بخصوص :" + "\n " + name + "\n ");
-                                 },
-                               ),
-                             ],
-                           ),
-                         ],
-                       ),],
+                                  Text(
+                                    "للشكاوى",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w800,
+                                        fontFamily: "Cairo"),
+                                  ),
+                                  // SizedBox(
+                                  //   width: 5,
+                                  // ),
+                                  // ignore: deprecated_member_use
+                                  IconButton(
+                                    icon: CircleAvatar(
+                                      child: Image.asset(
+                                          "assets/images/whatsapp.png"),
+                                      radius: 30,
+                                    ),
+                                    onPressed: () {
+                                      launchWhatsapp(
+                                          number: "0201557772228",
+                                          message: "تقديم شكوى بخصوص :" +
+                                              "\n " +
+                                              name +
+                                              "\n ");
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ],

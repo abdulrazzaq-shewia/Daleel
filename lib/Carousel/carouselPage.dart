@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:share/share.dart';
@@ -40,20 +41,20 @@ class CarouselPage extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  Image.network(myAds['image']),
                   Container(
-                    height: 350,
+                    height:200,
+                      width: double.infinity,
+                      child: Image.network(myAds['image'],fit: BoxFit.cover,)),
+                  Container(
+                    height: 390,
                     child: ListView(
                       children: [
-                        Row(
-                          children: [
-                            SizedBox(
-                              width: 20,
-                            ),
-                            SizedBox(
-                              width: 20,
-                            ),
-                            Text(
+                        Center(
+                          child: Container(
+                            width: 300,
+                            margin: EdgeInsets.all(10),
+                            child: Text(
+
                               myAds['title'],
                               style: TextStyle(
                                   fontSize: 18,
@@ -61,101 +62,116 @@ class CarouselPage extends StatelessWidget {
                                   fontWeight: FontWeight.w800,
                                   fontFamily: "Cairo"),
                             ),
-                          ],
+                          ),
                         ),
-                        SizedBox(
-                          height: 15,
-                        ),
+
                         // ignore: deprecated_member_use
+
+                      ],
+                    ),
+                  ),
+                  Container(
+                    height: 50,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
                         Row(
                           children: [
-                            SizedBox(width: 15,),
-                            Icon(Icons.phone,color: Colors.deepPurple,),
-                            SizedBox(width: 15,),
+                            SizedBox(
+                              width: 20,
+                            ),
+
                             // ignore: deprecated_member_use
                             RaisedButton(
                               elevation: 4,
-
-                              onPressed: () async {
-                                //Launch(myAds["phoneNumber"]);
-                               await  phoneCall(myAds["phoneNumber"]);
+                              onPressed: () async => {
+                                phoneCall(myAds["phoneNumber"]),
                               },
                               child: Text(
                                 "إتصال",
                                 style: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 16,
                                     color: Colors.green,
                                     fontWeight: FontWeight.w800,
                                     fontFamily: "Cairo"),
                               ),
                             ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            SizedBox(width: 15,),
-                            Icon(Icons.share,color: Colors.deepPurple),
-                            SizedBox(width: 15,),
-                            // ignore: deprecated_member_use
-                            RaisedButton(
-                                child: Text("مشاركة",
+
+                            Row(
+                              children: [
+                                // Icon(Icons.share,color: Colors.deepPurple),
+                                SizedBox(
+                                  width: 15,
+                                ),
+                                // ignore: deprecated_member_use
+                                RaisedButton(
+                                    child: Text(
+                                      "مشاركة",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w800,
+                                          fontFamily: "Cairo"),
+                                    ),
+                                    color: Colors.blue,
+                                    elevation: 4,
+                                    onPressed: () {
+                                      RenderBox box =
+                                      context.findRenderObject();
+                                      Share.share(
+                                        myAds['title'] + "\n ",
+                                        subject:  myAds['title'],
+                                        sharePositionOrigin:
+                                        box.localToGlobal(Offset.zero) &
+                                        box.size,
+                                      );
+                                    }),
+                              ],
+                            ),
+
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: 15,
+                                ),
+                                // Icon(
+                                //   Icons.error_outline,
+                                //   color: Colors.deepPurple,
+                                // ),
+
+                                Text(
+                                  "للشكاوى",
                                   style: TextStyle(
-                                      fontSize: 18,
+                                      fontSize: 16,
                                       color: Colors.white,
                                       fontWeight: FontWeight.w800,
-                                      fontFamily: "Cairo"),),
-                                color: Colors.blue,
-                                elevation: 4,
-                                onPressed: () {
-                                  RenderBox box = context.findRenderObject();
-                                  Share.share(
-                                    myAds["title"]+"\n"+"رابط التطبيق",
-                                    subject: myAds["phoneNumber"],
-                                    sharePositionOrigin:
-                                        box.localToGlobal(Offset.zero) &
-                                            box.size,
-                                  );
-                                }),
+                                      fontFamily: "Cairo"),
+                                ),
+                                // SizedBox(
+                                //   width: 5,
+                                // ),
+                                // ignore: deprecated_member_use
+                                IconButton(
+                                  icon: CircleAvatar(
+                                    child: Image.asset(
+                                        "assets/images/whatsapp.png"),
+                                    radius: 30,
+                                  ),
+                                  onPressed: () {
+                                    launchWhatsapp(
+                                        number: "0201557772228",
+                                        message: "تقديم شكوى بخصوص :" +
+                                            "\n " +
+                                            myAds['title'] +
+                                            "\n ");
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
-                        )
+                        ),
                       ],
                     ),
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Icon(
-                        Icons.error_outline,
-                        color: Colors.deepPurple,
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Text(
-                        "للشكاوى",
-                        style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w800,
-                            fontFamily: "Cairo"),
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      // ignore: deprecated_member_use
-                      IconButton(
-                        icon: CircleAvatar(
-                          child: Image.asset("assets/images/whatsapp.png"),
-                          radius: 30,
-                        ),
-                        onPressed: () {
-                          launchWhatsapp(
-                              number: "0201557772228", message: "مرحبا دكتور");
-                        },
-                      ),
-                    ],
                   ),
                 ],
               ),

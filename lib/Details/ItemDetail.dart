@@ -43,21 +43,19 @@ class ItemDetail extends StatelessWidget {
 
           children: [
             SizedBox(
-              width: 20,
+              width: 15,
             ),
             CircleAvatar(
               child: Image.network(image),
               radius: 35,
             ),
             SizedBox(
-              width: 20,
+              width: 10,
             ),
             Column(
               children: [
                 Icon(Icons.person, color: Colors.white),
-                SizedBox(
-                  width: 20,
-                ),
+
                 Icon(
                   Icons.work,
                   color: Colors.white ,
@@ -66,14 +64,15 @@ class ItemDetail extends StatelessWidget {
               ],
             ),
             SizedBox(
-              width: 20,
+              width: 10,
             ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   name,
                   style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 15,
                       color: Colors.white,
                       fontWeight: FontWeight.w800,
                       fontFamily: "Cairo"),
