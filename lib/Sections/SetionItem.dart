@@ -30,17 +30,19 @@ class SectionItem extends StatelessWidget {
         splashColor: Colors.deepOrange,
         borderRadius: BorderRadius.circular(5),
         child: Card(
-          color: Colors.deepPurple,
+          color: Colors.green.withOpacity(0.4),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          elevation: 10,
+          elevation: 7,
           margin: EdgeInsets.all(5),
           child: Container(
+            margin:EdgeInsets.all(2) ,
             padding: EdgeInsets.all(5),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 CircleAvatar(
+
                   backgroundColor: Colors.grey,
                   child: Image.network(Sections_image),
                   radius: 35,
@@ -52,18 +54,18 @@ class SectionItem extends StatelessWidget {
                   Sections_title,
                   style: TextStyle(
                       fontSize: 18,
-                      color: Colors.white,
+                      color: Colors.blue,
                       fontWeight: FontWeight.w700,
                       fontFamily: "Cairo"),
                 ),
               ],
             ),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
+                borderRadius: BorderRadius.circular(15),
                 gradient: LinearGradient(
                   colors: [
-                    Colors.orangeAccent,
-                    Colors.orange,
+                    Colors.white,
+                    Colors.white,
                   ],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomLeft,

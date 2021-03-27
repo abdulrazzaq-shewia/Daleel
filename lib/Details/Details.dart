@@ -49,7 +49,6 @@ class _DetailsState extends State<Details> {
           future: getMyData(),
           builder: (ctx, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
-              //  print("FUTRUEBUILDER IS HERE");
               return ListView(
                 scrollDirection: Axis.vertical,
                 children: myData //  CAROUSEL_DATA_CATEGORY

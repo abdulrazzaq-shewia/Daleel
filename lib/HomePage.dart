@@ -3,12 +3,15 @@ import 'dart:convert';
 import 'package:daleel_yemen_cairo/Carousel/carouselPage.dart';
 import 'package:daleel_yemen_cairo/Carousel/mycarousel.dart';
 import 'package:daleel_yemen_cairo/Home/CategoryScreenHomePage.dart';
+import 'package:daleel_yemen_cairo/Notification/Notification.dart';
 import 'package:daleel_yemen_cairo/Sections/Section.dart';
 import 'package:daleel_yemen_cairo/Tips/CategoryScreenTips.dart';
 import 'package:daleel_yemen_cairo/Tips/Tips.dart';
 import 'package:daleel_yemen_cairo/Tips/TipsPage.dart';
 import 'package:daleel_yemen_cairo/drawer/myDrawer.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -26,11 +29,52 @@ class _HomePageState extends State<HomePage> {
     // }
     // print(listsearch);
   }
+ getMyToken()async{
+  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+  String token = '';
+  print("get my token ");
+   await _firebaseMessaging.getToken().then((deviceToken) {
+    print("The token is here: $deviceToken" );
+  });
 
+}
   @override
   void initState() {
+     getMyToken();
+    //final PushNotificationClass notificationClass =  PushNotificationClass();
+     // get token
+    //notificationClass.configerFirebaseListners();
+
+
+    _configerFirebaseListners();
     getData();
     super.initState();
+  }
+  _configerFirebaseListners() {
+    print (" HEY I AM HERE IN");
+    final FirebaseMessaging firebaseMessaging = FirebaseMessaging();
+
+    // if (Platform.isIOs) {
+    //   firebaseMessaging.requestNotificationPermissions(IosNotificationSettings());
+    // }
+
+    firebaseMessaging.configure(
+      onMessage: (Map<String, dynamic> message) async {
+        print("onMessage: $message");
+        setState(() {
+          print("inside setState ");
+        });
+       // _setMessage(message);
+      },
+      onLaunch: (Map<String, dynamic> message) async {
+        print("onLaunch: $message");
+      //  _setMessage(message);
+      },
+      onResume: (Map<String, dynamic> message) async {
+        print("onResume: $message");
+       // _setMessage(message);
+      },
+    );
   }
 
   @override
@@ -52,13 +96,26 @@ class _HomePageState extends State<HomePage> {
             ],
             title: Center(
                 child: Text(
-              "دليل اليمنيين الشامل في مصر",
+              "دليلك الشامل في مصر",
               style: TextStyle(
                   fontSize: 18,
                   color: Colors.white,
                   fontWeight: FontWeight.w800,
                   fontFamily: "Cairo"),
             )),
+            leading: IconButton(
+              icon: CircleAvatar(
+                child: Image.asset("assets/images/whatsapp.png"),
+                radius: 15,
+              ),
+              onPressed: () {
+                launchWhatsapp(
+                    number: "0201557772228",
+                    message:
+                        "مرحباً بك ...ماهي الاضافة التي تود وجودها في التطبيق؟ :" +
+                            "\n ");
+              },
+            ),
           ),
           //  drawer: Center(child: MyDrawer()),
           body: ListView(
@@ -74,7 +131,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Container(
                 height: 400,
-                color: Colors.blueGrey,
+                color: Colors.white,
                 child: CategoryScreenHomePage(),
               )
             ],
@@ -132,11 +189,16 @@ class DataSearch extends SearchDelegate<String> {
           return ListTile(
             leading: Icon(Icons.label_important_sharp),
             title: Text(searchlist[i]),
-            onTap:(){
+            onTap: () {
               query = searchlist[i];
               showResults(context);
             },
           );
         });
   }
+}
+
+void launchWhatsapp({@required number, @required message}) async {
+  String url = "whatsapp://send?phone=$number&text=$message";
+  await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
 }

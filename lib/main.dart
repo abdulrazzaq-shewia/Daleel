@@ -1,4 +1,5 @@
 import 'package:daleel_yemen_cairo/HomePage.dart';
+import 'package:daleel_yemen_cairo/Notification/Notification.dart';
 import 'package:daleel_yemen_cairo/PView.dart';
 import 'package:daleel_yemen_cairo/Splash.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,20 @@ void main() async {
   runApp(screen);
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+  // void initState(){
+  //   PushNotificationClass notificationClass ;//= new PushNotificationClass();
+  //   super.initState();
+  //   // get token
+  //   notificationClass.configerFirebaseListners();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

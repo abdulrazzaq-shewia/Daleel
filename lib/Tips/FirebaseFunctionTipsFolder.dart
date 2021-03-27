@@ -7,14 +7,12 @@ class FirebaseFunctionTipsFolder{
 
   static Future readFolder() async {
     try {
-// QuerySnapshot qn = await firestore.collection('Daleel')
-// .getdocument();
 
       var firestore = Firestore.instance;
       QuerySnapshot qn = await firestore
           .collection('Daleel')
           .document('ServicesID')
-          .collection('Services')
+          .collection('Services').orderBy("orderby")
           .getDocuments();
       List myFolder = qn.documents.map((doc) {
 
