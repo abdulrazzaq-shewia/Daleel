@@ -46,7 +46,7 @@ class CarouselPage extends StatelessWidget {
                       width: double.infinity,
                       child: Image.network(myAds['image'],fit: BoxFit.cover,)),
                   Container(
-                    height: 390,
+                    height: 350,
                     child: ListView(
                       children: [
                         Center(

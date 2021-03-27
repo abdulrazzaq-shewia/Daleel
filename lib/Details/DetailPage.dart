@@ -42,7 +42,7 @@ class DetailPage extends StatelessWidget {
             )),
           ),
           body: Card(
-            color: Colors.deepOrange.withOpacity(0.7),
+            color: Colors.white,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             elevation: 5,
@@ -50,7 +50,7 @@ class DetailPage extends StatelessWidget {
             child: ListView(
               children: [
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 Container(
                   child: CircleAvatar(
@@ -60,7 +60,7 @@ class DetailPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 Column(
                   children: [
@@ -70,70 +70,18 @@ class DetailPage extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.person,
-                            color: Colors.white,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            name,
-                            style: TextStyle(
-                                fontSize: 18,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w800,
-                                fontFamily: "Cairo"),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.home_repair_service,
-                            color: Colors.white,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            job,
-                            style: TextStyle(
-                                fontSize: 18,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w800,
-                                fontFamily: "Cairo"),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.location_on_outlined,
-                            color: Colors.white,
+                            color: Colors.blue,
                           ),
                           SizedBox(
                             width: 10,
                           ),
                           Container(
                             width: 250,
-                            padding: EdgeInsets.all(5),
-                            color: Colors.green,
                             child: Text(
-                              location,
+                              name,
                               style: TextStyle(
                                   fontSize: 18,
-                                  color: Colors.white,
+                                  color: Colors.blue,
                                   fontWeight: FontWeight.w800,
                                   fontFamily: "Cairo"),
                             ),
@@ -141,8 +89,81 @@ class DetailPage extends StatelessWidget {
                         ],
                       ),
                     ),
+                    Divider(
+                      height: 10,
+                      thickness: 2,
+                      indent: 25,
+                      endIndent: 130,
+                      color: Colors.grey,
+                    ),
+                    Container(
+                      margin: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.home_repair_service,
+                            color: Colors.green,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Container(
+                            width: 250,
+                            child: Text(
+                              job,
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.green,
+                                  fontWeight: FontWeight.w800,
+                                  fontFamily: "Cairo"),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Divider(
+                      height: 10,
+                      thickness: 2,
+                      indent: 25,
+                      endIndent: 130,
+                      color: Colors.grey,
+                    ),
+                    Container(
+                      margin: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.location_on_outlined,
+                            color: Colors.deepOrange,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Container(
+                            width: 250,
+                            padding: EdgeInsets.all(5),
+                            // color: Colors.green,
+                            child: Text(
+                              location,
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.redAccent,
+                                  fontWeight: FontWeight.w800,
+                                  fontFamily: "Cairo"),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Divider(
+                      height: 10,
+                      thickness: 2,
+                      indent: 25,
+                      endIndent: 130,
+                      color: Colors.grey,
+                    ),
                     SizedBox(
-                      height: 180,
+                      height: 50,
                     ),
                     Container(
                       height: 50,
@@ -157,16 +178,17 @@ class DetailPage extends StatelessWidget {
 
                               // ignore: deprecated_member_use
                               RaisedButton(
-                                elevation: 4,
+                                color: Colors.green,
+                                elevation: 5,
                                 onPressed: () async => {
                                   phoneCall(phone),
                                 },
                                 child: Text(
                                   "إتصال",
                                   style: TextStyle(
-                                      fontSize: 16,
-                                      color: Colors.green,
-                                      fontWeight: FontWeight.w800,
+                                      fontSize: 18,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w900,
                                       fontFamily: "Cairo"),
                                 ),
                               ),
@@ -193,7 +215,9 @@ class DetailPage extends StatelessWidget {
                                         RenderBox box =
                                             context.findRenderObject();
                                         Share.share(
-                                          name + "\n " + job + "\n " + phone,
+                                          name + "\n " + job +
+                                              "\n "+"لمعرفة باقي التفاصيل يرجى تنزيل التطبيق من الرابط"
+                                              + "\n "+"رابط التطبيق",
                                           subject: job,
                                           sharePositionOrigin:
                                               box.localToGlobal(Offset.zero) &
@@ -208,29 +232,18 @@ class DetailPage extends StatelessWidget {
                                   SizedBox(
                                     width: 15,
                                   ),
-                                  // Icon(
-                                  //   Icons.error_outline,
-                                  //   color: Colors.deepPurple,
-                                  // ),
-
-                                  Text(
-                                    "للشكاوى",
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w800,
-                                        fontFamily: "Cairo"),
-                                  ),
-                                  // SizedBox(
-                                  //   width: 5,
-                                  // ),
                                   // ignore: deprecated_member_use
-                                  IconButton(
-                                    icon: CircleAvatar(
-                                      child: Image.asset(
-                                          "assets/images/whatsapp.png"),
-                                      radius: 30,
+                                  RaisedButton(
+                                    child: Text(
+                                      "شكوى",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w800,
+                                          fontFamily: "Cairo"),
                                     ),
+                                    color: Colors.deepOrange,
+                                    elevation: 4,
                                     onPressed: () {
                                       launchWhatsapp(
                                           number: "0201557772228",

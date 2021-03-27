@@ -35,62 +35,76 @@ class ItemDetail extends StatelessWidget {
     return InkWell(
       child: Card(
 
-        color: Colors.orange,
+        color: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        elevation: 7,
+        elevation: 10,
         margin: EdgeInsets.all(5),
         child: Row(
-
           children: [
             SizedBox(
-              width: 15,
+              width: 10,
             ),
             CircleAvatar(
               child: Image.network(image),
               radius: 35,
             ),
             SizedBox(
-              width: 10,
-            ),
-            Column(
-              children: [
-                Icon(Icons.person, color: Colors.white),
-
-                Icon(
-                  Icons.work,
-                  color: Colors.white ,
-                ),
-
-              ],
-            ),
-            SizedBox(
-              width: 10,
+              width: 5,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  name,
-                  style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w800,
-                      fontFamily: "Cairo"),
+
+                Row(
+                  children: [
+                    Icon(Icons.person, color: Colors.blue),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Container(
+                      width: 200,
+                      child: Text(
+                        name,
+                        style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.blue,
+                            fontWeight: FontWeight.w800,
+                            fontFamily: "Cairo"),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10),
+
+
+
+                Row(
+                  children: [
+                    Icon(
+                      Icons.work,
+                      color: Colors.green,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Container(
+                      width: 200,
+                      child: Text(
+                        job,
+                        style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.green,
+                            fontWeight: FontWeight.w800,
+                            fontFamily: "Cairo"),
+                      ),
+                    ),
+                  ],
                 ),
 
-                Text(
-                  job,
-                  style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w800,
-                      fontFamily: "Cairo"),
-                ),
+
               ],
             ),
-            SizedBox(
-              width: 10,
-            ),
+
           ],
         ),
       ),

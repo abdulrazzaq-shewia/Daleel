@@ -34,13 +34,16 @@ dependencies:
   firebase_core: ^0.4.0+9
   firebase_analytics: ^5.0.2
   flutter_phone_direct_caller: ^1.0.1
+  firebase_messaging: ^6.0.13
+
 
 
   share: ^2.0.1
   url_launcher: ^6.0.2
   http:
   page_view_indicator: ^2.0.4
-  shared_preferences: ^2.0.5
+  shared_preferences: ^0.5.7+3
+
 
 #  cloud_firestore_web: ^1.0.0
 

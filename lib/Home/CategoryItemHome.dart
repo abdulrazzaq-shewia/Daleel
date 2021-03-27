@@ -1,4 +1,6 @@
+import 'package:daleel_yemen_cairo/Notification/Notification.dart';
 import 'package:daleel_yemen_cairo/Sections/Section.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
 class CategoryItemHome extends StatelessWidget {
@@ -20,13 +22,23 @@ class CategoryItemHome extends StatelessWidget {
       "newCollection":newCollection,
     });
   }
+  getMyToken()async{
+    final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+    String token = '';
+    print("get my token ");
+    await _firebaseMessaging.getToken().then((deviceToken) {
+      print("The token is here: $deviceToken" );
+    });
 
+  }
   @override
   Widget build(BuildContext context) {
     return InkWell(
         splashColor: Colors.deepOrange,
         borderRadius: BorderRadius.circular(5),
         child: Card(
+          elevation: 5,
+          color: Colors.green.withOpacity(0.5),
           child: Container(
             padding: EdgeInsets.all(15),
             margin: EdgeInsets.all(3),
@@ -45,7 +57,7 @@ class CategoryItemHome extends StatelessWidget {
                   home_title,
                   style: TextStyle(
                       fontSize: 18,
-                      color: Colors.white,
+                      color: Colors.blue,
                       fontWeight: FontWeight.w700,
                       fontFamily: "Cairo"),
                 ),
@@ -55,8 +67,8 @@ class CategoryItemHome extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5),
                 gradient: LinearGradient(
                   colors: [
-                    Colors.green.withOpacity(0.8),
-                    Colors.green.withOpacity(0.8),
+                    Colors.white.withOpacity(0.9),
+                    Colors.white24.withOpacity(0.9),
                   ],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomLeft,
@@ -64,6 +76,10 @@ class CategoryItemHome extends StatelessWidget {
           ),
         ),
         onTap: () {
+          print (" YES   ---------------------");
+          PushNotificationClass notificationClass = new PushNotificationClass();
+          getMyToken();
+          notificationClass.configerFirebaseListners();
           selectHome(context);
           // final route = MaterialPageRoute(builder: (context) => Section());
           // Navigator.push(context, route);
