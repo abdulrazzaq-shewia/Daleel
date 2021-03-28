@@ -10,7 +10,7 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
-  SplashDatabse splash = SplashDatabse(id:'9',title: 'Hello',image: 'hey');
+  SplashDatabse splash = SplashDatabse();
 
   Future getSplash() async {
     splash = await DatabaseFunctionsSplash.readSplash();

@@ -40,28 +40,7 @@ class TipsPage extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  // Row(
-                  //   children: [
-                  //     SizedBox(
-                  //       width: 5,
-                  //     ),
-                  //     Icon(
-                  //       Icons.circle,
-                  //       color: Colors.red,
-                  //     ),
-                  //     SizedBox(
-                  //       width: 10,
-                  //     ),
-                  //     Text(
-                  //       title_description,
-                  //       style: TextStyle(
-                  //           fontSize: 18,
-                  //           color: Colors.red,
-                  //           fontWeight: FontWeight.w800,
-                  //           fontFamily: "Cairo"),
-                  //     ),
-                  //   ],
-                  // ),
+
                   SizedBox(
                     height: 10,
                   ),
