@@ -8,7 +8,6 @@ import 'package:daleel_yemen_cairo/Sections/Section.dart';
 import 'package:daleel_yemen_cairo/Tips/CategoryScreenTips.dart';
 import 'package:daleel_yemen_cairo/Tips/Tips.dart';
 import 'package:daleel_yemen_cairo/Tips/TipsPage.dart';
-import 'package:daleel_yemen_cairo/drawer/myDrawer.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -85,15 +84,15 @@ class _HomePageState extends State<HomePage> {
         textDirection: TextDirection.rtl,
         child: Scaffold(
           appBar: AppBar(
-            actions: [
-              IconButton(
-                  icon: Icon(Icons.search),
-                  onPressed: () {
-                    showSearch(
-                        context: context,
-                        delegate: DataSearch(list: listsearch));
-                  })
-            ],
+            // actions: [
+            //   IconButton(
+            //       icon: Icon(Icons.search),
+            //       onPressed: () {
+            //         showSearch(
+            //             context: context,
+            //             delegate: DataSearch(list: listsearch));
+            //       })
+            // ],
             title: Center(
                 child: Text(
               "دليلك الشامل في مصر",
@@ -106,13 +105,13 @@ class _HomePageState extends State<HomePage> {
             leading: IconButton(
               icon: CircleAvatar(
                 child: Image.asset("assets/images/whatsapp.png"),
-                radius: 15,
+                radius: 12,
               ),
               onPressed: () {
                 launchWhatsapp(
                     number: "0201557772228",
                     message:
-                        "مرحباً بك ...ماهي الاضافة التي تود وجودها في التطبيق؟ :" +
+                        "مرحباً بك ...ماهي الاضافة التي تود وجودها في التطبيق؟ " +
                             "\n ");
               },
             ),

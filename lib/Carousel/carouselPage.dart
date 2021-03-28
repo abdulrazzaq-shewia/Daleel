@@ -33,7 +33,7 @@ class CarouselPage extends StatelessWidget {
           ),
         ),
         body: Card(
-          color: Colors.blueAccent.withOpacity(0.7),
+          color: Colors.white,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
           elevation: 10,
           margin: EdgeInsets.all(4),
@@ -46,7 +46,7 @@ class CarouselPage extends StatelessWidget {
                       width: double.infinity,
                       child: Image.network(myAds['image'],fit: BoxFit.cover,)),
                   Container(
-                    height: 350,
+                    height: 300,
                     child: ListView(
                       children: [
                         Center(
@@ -58,7 +58,7 @@ class CarouselPage extends StatelessWidget {
                               myAds['title'],
                               style: TextStyle(
                                   fontSize: 18,
-                                  color: Colors.white,
+                                  color: Colors.blue,
                                   fontWeight: FontWeight.w800,
                                   fontFamily: "Cairo"),
                             ),
@@ -84,15 +84,17 @@ class CarouselPage extends StatelessWidget {
                             // ignore: deprecated_member_use
                             RaisedButton(
                               elevation: 4,
+                              color: Colors.green,
+
                               onPressed: () async => {
                                 phoneCall(myAds["phoneNumber"]),
                               },
                               child: Text(
                                 "إتصال",
                                 style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.green,
-                                    fontWeight: FontWeight.w800,
+                                    fontSize: 18,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w900,
                                     fontFamily: "Cairo"),
                               ),
                             ),
@@ -139,24 +141,18 @@ class CarouselPage extends StatelessWidget {
                                 //   color: Colors.deepPurple,
                                 // ),
 
-                                Text(
-                                  "للشكاوى",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w800,
-                                      fontFamily: "Cairo"),
-                                ),
-                                // SizedBox(
-                                //   width: 5,
-                                // ),
                                 // ignore: deprecated_member_use
-                                IconButton(
-                                  icon: CircleAvatar(
-                                    child: Image.asset(
-                                        "assets/images/whatsapp.png"),
-                                    radius: 30,
+                                RaisedButton(
+                                  child: Text(
+                                    "شكوى",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w800,
+                                        fontFamily: "Cairo"),
                                   ),
+                                  color: Colors.deepOrange,
+                                  elevation: 4,
                                   onPressed: () {
                                     launchWhatsapp(
                                         number: "0201557772228",

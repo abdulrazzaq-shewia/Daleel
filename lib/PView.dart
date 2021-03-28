@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:page_view_indicator/page_view_indicator.dart';
 import 'package:daleel_yemen_cairo/HomePage.dart';
-import 'package:daleel_yemen_cairo/Splash.dart';
+import 'file:///E:/Flutter+Dart/Program/daleel_yemen_cairo/lib/Splash/Splash.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

@@ -32,7 +32,7 @@ class CategoryItemTips extends StatelessWidget {
       splashColor: Colors.deepOrange,
       borderRadius: BorderRadius.circular(5),
       child: Card(
-        color: Colors.white24,
+        color: Colors.deepPurpleAccent.withOpacity(0.5),
         child: Container(
           height: 85,
           width: 85,
@@ -51,7 +51,7 @@ class CategoryItemTips extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: 12,
-                    color: Colors.white,
+                    color: Colors.blue,
                     fontWeight: FontWeight.w700,
                     fontFamily: "Cairo"),
               )
@@ -61,8 +61,8 @@ class CategoryItemTips extends StatelessWidget {
               borderRadius: BorderRadius.circular(5),
               gradient: LinearGradient(
                 colors: [
-                  Colors.blue,
-                  Colors.blue,
+                  Colors.white,
+                  Colors.white,
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomLeft,

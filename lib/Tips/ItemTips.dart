@@ -21,13 +21,7 @@ class ItemTips extends StatelessWidget {
           title_description: title_description,
         )));
 
-    // print("Title Des" + title_description);
-    // Navigator.of(ctx).pushNamed(
-    //   TipsPage.routName,
-    //   id: id,
-    //   title_description: title_description,
-    //   description: description,
-   // );
+
   }
 
   @override
@@ -38,22 +32,22 @@ class ItemTips extends StatelessWidget {
         splashColor: Colors.deepOrange,
         borderRadius: BorderRadius.circular(5),
         child: Card(
+          elevation: 7,
+          color: Colors.green.shade200,
           child: Container(
-            padding: EdgeInsets.all(15),
+            margin: EdgeInsets.all(3),
+
+            padding: EdgeInsets.all(10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                // CircleAvatar(
-                //   backgroundColor: Colors.grey,
-                //   child: Image.asset(Sections_image),
-                //   radius: 45,
-                // ),
+
 
                 Text(
                   title_description,
                   style: TextStyle(
                       fontSize: 18,
-                      color: Colors.white,
+                      color: Colors.blue,
                       fontWeight: FontWeight.w700,
                       fontFamily: "Cairo"),
                 ),
@@ -63,8 +57,8 @@ class ItemTips extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5),
                 gradient: LinearGradient(
                   colors: [
-                    Colors.orangeAccent,
-                    Colors.orange,
+                    Colors.white,
+                    Colors.white,
                   ],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomLeft,

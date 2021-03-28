@@ -32,7 +32,7 @@ class TipsPage extends StatelessWidget {
           ),
         ),
         body: Card(
-          color: Colors.blueAccent.withOpacity(0.7),          shape:
+          color: Colors.white,          shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
           elevation: 5,
           margin: EdgeInsets.all(5),
@@ -40,28 +40,28 @@ class TipsPage extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Icon(
-                        Icons.circle,
-                        color: Colors.red,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        title_description,
-                        style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.red,
-                            fontWeight: FontWeight.w800,
-                            fontFamily: "Cairo"),
-                      ),
-                    ],
-                  ),
+                  // Row(
+                  //   children: [
+                  //     SizedBox(
+                  //       width: 5,
+                  //     ),
+                  //     Icon(
+                  //       Icons.circle,
+                  //       color: Colors.red,
+                  //     ),
+                  //     SizedBox(
+                  //       width: 10,
+                  //     ),
+                  //     Text(
+                  //       title_description,
+                  //       style: TextStyle(
+                  //           fontSize: 18,
+                  //           color: Colors.red,
+                  //           fontWeight: FontWeight.w800,
+                  //           fontFamily: "Cairo"),
+                  //     ),
+                  //   ],
+                  // ),
                   SizedBox(
                     height: 10,
                   ),
@@ -69,14 +69,14 @@ class TipsPage extends StatelessWidget {
                     height: 500,
                     width: double.infinity,
                     child: ListView.builder(
-                      padding: EdgeInsets.all(5),
+                      padding: EdgeInsets.all(2),
 
                       itemBuilder: (ctx, index) => Card(
                         child: Text(
                           description[index],
                           style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.purple,
+                              fontSize: 14,
+                              color: Colors.blue,
                               fontWeight: FontWeight.w800,
                               fontFamily: "Cairo"),
                         ),
@@ -99,8 +99,8 @@ class TipsPage extends StatelessWidget {
                                 color: Colors.white,
                                 fontWeight: FontWeight.w800,
                                 fontFamily: "Cairo"),),
-                          color: Colors.deepOrange.withOpacity(0.9),
-                          elevation: 4,
+                          color: Colors.blue,
+                          elevation: 7,
                           onPressed: () {
                             RenderBox box = context.findRenderObject();
                             Share.share(

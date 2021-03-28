@@ -19,22 +19,24 @@ class ItemDetail extends StatelessWidget {
   });
 
   void selectDetail(BuildContext ctx) {
-    Navigator.of(ctx).push(MaterialPageRoute(
+    Navigator.of(ctx).push(
+      MaterialPageRoute(
         builder: (context) => DetailPage(
-              id: id,
-              job: job,
-              name: name,
-              location: location,
-              phone: phone,
-              image: image,
-            )));
+          id: id,
+          job: job,
+          name: name,
+          location: location,
+          phone: phone,
+          image: image,
+        ),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       child: Card(
-
         color: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         elevation: 10,
@@ -54,7 +56,6 @@ class ItemDetail extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
                 Row(
                   children: [
                     Icon(Icons.person, color: Colors.blue),
@@ -75,9 +76,6 @@ class ItemDetail extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 10),
-
-
-
                 Row(
                   children: [
                     Icon(
@@ -100,11 +98,8 @@ class ItemDetail extends StatelessWidget {
                     ),
                   ],
                 ),
-
-
               ],
             ),
-
           ],
         ),
       ),

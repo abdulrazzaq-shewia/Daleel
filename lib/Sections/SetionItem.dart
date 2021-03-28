@@ -8,8 +8,14 @@ class SectionItem extends StatelessWidget {
   final String newCollection;
   final String preID;
   final String preCollection;
-  const SectionItem(this.Sections_id, this.Sections_image, this.Sections_title,
-      this.newCollection, this.preID, this.preCollection);
+  const SectionItem(
+    this.Sections_id,
+    this.Sections_image,
+    this.Sections_title,
+    this.newCollection,
+    this.preID,
+    this.preCollection,
+  );
 
   void selecSection(BuildContext ctx) {
     Navigator.of(ctx).pushNamed(Details.routName, arguments: {
@@ -36,13 +42,12 @@ class SectionItem extends StatelessWidget {
           elevation: 7,
           margin: EdgeInsets.all(5),
           child: Container(
-            margin:EdgeInsets.all(2) ,
+            margin: EdgeInsets.all(2),
             padding: EdgeInsets.all(5),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 CircleAvatar(
-
                   backgroundColor: Colors.grey,
                   child: Image.network(Sections_image),
                   radius: 35,
