@@ -1,7 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:daleel_yemen_cairo/Carousel/ads.dart';
 import 'package:daleel_yemen_cairo/Carousel/carouselItem.dart';
-import 'file:///E:/Flutter+Dart/Program/daleel_yemen_cairo/lib/Carousel/database.dart';
+import 'database.dart';
+//import 'file:///E:/Flutter+Dart/Program/daleel_yemen_cairo/lib/Carousel/database.dart';
 import 'package:flutter/material.dart';
 
 class MyCarousel extends StatefulWidget {
@@ -48,7 +49,6 @@ class _MyCarouselState extends State<MyCarousel> {
               autoPlayInterval: const Duration(seconds: 3),
             ),
           );
-
         }
       ),
     ]);

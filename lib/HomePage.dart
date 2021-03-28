@@ -1,16 +1,23 @@
-import 'dart:convert';
 
 import 'package:daleel_yemen_cairo/Carousel/carouselPage.dart';
 import 'package:daleel_yemen_cairo/Carousel/mycarousel.dart';
 import 'package:daleel_yemen_cairo/Home/CategoryScreenHomePage.dart';
+<<<<<<< HEAD
 import 'package:daleel_yemen_cairo/Notification/Notification.dart';
+=======
+import 'package:daleel_yemen_cairo/PushNotification/push_notification.dart';
+>>>>>>> b4b546443123916b26fc8ae24f35a2387469236a
 import 'package:daleel_yemen_cairo/Sections/Section.dart';
 import 'package:daleel_yemen_cairo/Tips/CategoryScreenTips.dart';
 import 'package:daleel_yemen_cairo/Tips/Tips.dart';
 import 'package:daleel_yemen_cairo/Tips/TipsPage.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:url_launcher/url_launcher.dart';
+=======
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+>>>>>>> b4b546443123916b26fc8ae24f35a2387469236a
 
 class HomePage extends StatefulWidget {
   @override
@@ -39,6 +46,7 @@ class _HomePageState extends State<HomePage> {
 }
   @override
   void initState() {
+<<<<<<< HEAD
      getMyToken();
     //final PushNotificationClass notificationClass =  PushNotificationClass();
      // get token
@@ -48,6 +56,25 @@ class _HomePageState extends State<HomePage> {
     _configerFirebaseListners();
     getData();
     super.initState();
+=======
+    
+//////////////////
+
+  int _counter = 0;
+
+  final _firebaseMessaging = FirebaseMessaging();
+super.initState();
+
+    // var initializationSettingsAndroid =
+    //     new AndroidInitializationSettings('@mipmap/ic_launcher');
+    // var initializationSettingsIOS = new IOSInitializationSettings();
+    // var initializationSettings = new InitializationSettings(
+    //     initializationSettingsAndroid  );
+
+    // var flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
+    // flutterLocalNotificationsPlugin.initialize(initializationSettings,
+    //     onSelectNotification: onSelectNotification);
+>>>>>>> b4b546443123916b26fc8ae24f35a2387469236a
   }
   _configerFirebaseListners() {
     print (" HEY I AM HERE IN");
@@ -84,6 +111,7 @@ class _HomePageState extends State<HomePage> {
         textDirection: TextDirection.rtl,
         child: Scaffold(
           appBar: AppBar(
+<<<<<<< HEAD
             // actions: [
             //   IconButton(
             //       icon: Icon(Icons.search),
@@ -93,6 +121,23 @@ class _HomePageState extends State<HomePage> {
             //             delegate: DataSearch(list: listsearch));
             //       })
             // ],
+=======
+            actions: [
+              IconButton(
+                  icon: Icon(Icons.search),
+                  onPressed: () {
+                    showSearch(
+                        context: context,
+                        delegate: DataSearch(list: listsearch));
+                  }),
+                  IconButton(
+                  icon: Icon(Icons.notification_important),
+                  onPressed: () {
+                     Navigator.push(context,MaterialPageRoute(builder: (context) =>  PushLocalNotification()),);
+                  }),
+                  
+            ],
+>>>>>>> b4b546443123916b26fc8ae24f35a2387469236a
             title: Center(
                 child: Text(
               "دليلك الشامل في مصر",
@@ -138,7 +183,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       routes: {
-        Section.routName: (context) => Section(),
+        Section.routName: (context) =>  Section(),
         Tips.routName: (context) => Tips(),
         TipsPage.routName: (context) => TipsPage(),
         CarouselPage.routName: (context) => CarouselPage(),
