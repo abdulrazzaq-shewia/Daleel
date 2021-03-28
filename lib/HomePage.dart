@@ -1,14 +1,15 @@
-import 'dart:convert';
 
 import 'package:daleel_yemen_cairo/Carousel/carouselPage.dart';
 import 'package:daleel_yemen_cairo/Carousel/mycarousel.dart';
 import 'package:daleel_yemen_cairo/Home/CategoryScreenHomePage.dart';
+import 'package:daleel_yemen_cairo/PushNotification/push_notification.dart';
 import 'package:daleel_yemen_cairo/Sections/Section.dart';
 import 'package:daleel_yemen_cairo/Tips/CategoryScreenTips.dart';
 import 'package:daleel_yemen_cairo/Tips/Tips.dart';
 import 'package:daleel_yemen_cairo/Tips/TipsPage.dart';
-import 'package:daleel_yemen_cairo/drawer/myDrawer.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -29,8 +30,23 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    getData();
-    super.initState();
+    
+//////////////////
+
+  int _counter = 0;
+
+  final _firebaseMessaging = FirebaseMessaging();
+super.initState();
+
+    // var initializationSettingsAndroid =
+    //     new AndroidInitializationSettings('@mipmap/ic_launcher');
+    // var initializationSettingsIOS = new IOSInitializationSettings();
+    // var initializationSettings = new InitializationSettings(
+    //     initializationSettingsAndroid  );
+
+    // var flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
+    // flutterLocalNotificationsPlugin.initialize(initializationSettings,
+    //     onSelectNotification: onSelectNotification);
   }
 
   @override
@@ -48,7 +64,13 @@ class _HomePageState extends State<HomePage> {
                     showSearch(
                         context: context,
                         delegate: DataSearch(list: listsearch));
-                  })
+                  }),
+                  IconButton(
+                  icon: Icon(Icons.notification_important),
+                  onPressed: () {
+                     Navigator.push(context,MaterialPageRoute(builder: (context) =>  PushLocalNotification()),);
+                  }),
+                  
             ],
             title: Center(
                 child: Text(
@@ -82,7 +104,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       routes: {
-        Section.routName: (context) => Section(),
+        Section.routName: (context) =>  Section(),
         Tips.routName: (context) => Tips(),
         TipsPage.routName: (context) => TipsPage(),
         CarouselPage.routName: (context) => CarouselPage(),

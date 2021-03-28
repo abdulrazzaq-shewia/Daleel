@@ -1,7 +1,10 @@
 import 'package:daleel_yemen_cairo/HomePage.dart';
 import 'package:daleel_yemen_cairo/PView.dart';
+import 'package:daleel_yemen_cairo/PushNotification/push_notification.dart';
 import 'package:daleel_yemen_cairo/Splash.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
@@ -69,9 +72,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     // List<MyAds> myAds = [];
                     // myAds = await DatabaseFunctions.readAds();
-
                     final route =
                         MaterialPageRoute(builder: (context) => HomePage());
+
                     Navigator.push(context, route);
                   })),
         ),
