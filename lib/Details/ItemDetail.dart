@@ -18,19 +18,28 @@ class ItemDetail extends StatelessWidget {
     this.image,
   });
 
-  void selectDetail(BuildContext ctx) {
-    Navigator.of(ctx).push(
-      MaterialPageRoute(
-        builder: (context) => DetailPage(
-          id: id,
-          job: job,
-          name: name,
-          location: location,
-          phone: phone,
-          image: image,
-        ),
-      ),
-    );
+  void selectDetail(BuildContext context) {
+    Navigator.restorablePushNamed(context, "DetailPage",arguments: {
+      "id" : id,
+       "job": job,
+       "name": name,
+       "location":location,
+       "phone":phone,
+       "image":image});
+
+    
+    // Navigator.of(ctx).push(
+    //   MaterialPageRoute(
+    //     builder: (context) => DetailPage(
+    //       id: id,
+    //       job: job,
+    //       name: name,
+    //       location: location,
+    //       phone: phone,
+    //       image: image,
+    //     ),
+    //   ),
+    // );
   }
 
   @override
@@ -103,7 +112,16 @@ class ItemDetail extends StatelessWidget {
           ],
         ),
       ),
-      onTap: () => selectDetail(context),
+      onTap: (){
+         Navigator.restorablePushNamed(context, "DetailPage",arguments: {
+      "id" : id,
+       "job": job,
+       "name": name,
+       "location":location,
+       "phone":phone,
+       "image":image});
+
+      }// => selectDetail(context),
     );
   }
 }

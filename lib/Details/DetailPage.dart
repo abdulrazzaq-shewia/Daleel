@@ -27,6 +27,19 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+final  Map<String, Object>data = ModalRoute.of(context).settings.arguments;
+    id = data["id"];
+    job = data["job"];
+    name = data["name"];
+    location = data["location"];
+    phone = data["phone"];
+    image = data["image"];
+
+   // print("rcvd fdata ${rcvdData['name']}");
+   // print("rcvd fdata)))))))))))))))))) ${rcvdData}");
+   print("HLL(");
+
+
     return Directionality(
         textDirection: TextDirection.rtl,
         child: Scaffold(

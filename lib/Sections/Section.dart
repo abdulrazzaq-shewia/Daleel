@@ -16,6 +16,7 @@ class Section extends StatefulWidget {
 class _SectionState extends State<Section> {
   @override
   Widget build(BuildContext context) {
+    //////////////////
     final routSection =
         ModalRoute.of(context).settings.arguments as Map<String, String>;
     final sectionId = routSection["home_id"];
@@ -32,9 +33,7 @@ class _SectionState extends State<Section> {
       // });
     }
 
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return   Scaffold(
           appBar: AppBar(
             title: Center(
                 child: Text(
@@ -66,11 +65,8 @@ class _SectionState extends State<Section> {
                     .toList(),
               );
             },
-          )),
-      routes: {
-        Details.routName: (context) => Details(),
-        DetailPage.routName: (context) => DetailPage(),
-      },
+          ),
+      
     );
   }
 }

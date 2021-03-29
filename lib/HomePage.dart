@@ -1,23 +1,17 @@
-
 import 'package:daleel_yemen_cairo/Carousel/carouselPage.dart';
 import 'package:daleel_yemen_cairo/Carousel/mycarousel.dart';
+import 'package:daleel_yemen_cairo/Details/DetailPage.dart';
+import 'package:daleel_yemen_cairo/Details/Details.dart';
 import 'package:daleel_yemen_cairo/Home/CategoryScreenHomePage.dart';
-<<<<<<< HEAD
-import 'package:daleel_yemen_cairo/Notification/Notification.dart';
-=======
 import 'package:daleel_yemen_cairo/PushNotification/push_notification.dart';
->>>>>>> b4b546443123916b26fc8ae24f35a2387469236a
 import 'package:daleel_yemen_cairo/Sections/Section.dart';
 import 'package:daleel_yemen_cairo/Tips/CategoryScreenTips.dart';
 import 'package:daleel_yemen_cairo/Tips/Tips.dart';
 import 'package:daleel_yemen_cairo/Tips/TipsPage.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'package:url_launcher/url_launcher.dart';
-=======
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
->>>>>>> b4b546443123916b26fc8ae24f35a2387469236a
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -35,35 +29,16 @@ class _HomePageState extends State<HomePage> {
     // }
     // print(listsearch);
   }
- getMyToken()async{
-  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
-  String token = '';
-  print("get my token ");
-   await _firebaseMessaging.getToken().then((deviceToken) {
-    print("The token is here: $deviceToken" );
-  });
 
-}
   @override
   void initState() {
-<<<<<<< HEAD
-     getMyToken();
-    //final PushNotificationClass notificationClass =  PushNotificationClass();
-     // get token
-    //notificationClass.configerFirebaseListners();
-
-
-    _configerFirebaseListners();
-    getData();
-    super.initState();
-=======
-    
 //////////////////
 
-  int _counter = 0;
+    int _counter = 0;
 
-  final _firebaseMessaging = FirebaseMessaging();
-super.initState();
+    final _firebaseMessaging = FirebaseMessaging();
+    super.initState();
+    configeration();
 
     // var initializationSettingsAndroid =
     //     new AndroidInitializationSettings('@mipmap/ic_launcher');
@@ -74,33 +49,23 @@ super.initState();
     // var flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
     // flutterLocalNotificationsPlugin.initialize(initializationSettings,
     //     onSelectNotification: onSelectNotification);
->>>>>>> b4b546443123916b26fc8ae24f35a2387469236a
   }
-  _configerFirebaseListners() {
-    print (" HEY I AM HERE IN");
-    final FirebaseMessaging firebaseMessaging = FirebaseMessaging();
 
-    // if (Platform.isIOs) {
-    //   firebaseMessaging.requestNotificationPermissions(IosNotificationSettings());
-    // }
-
-    firebaseMessaging.configure(
-      onMessage: (Map<String, dynamic> message) async {
-        print("onMessage: $message");
-        setState(() {
-          print("inside setState ");
+  void configeration() async {
+    String notifyContent = "";
+    await OneSignal.shared.init(
+      "b1c8f3f3-b844-46e9-8243-53d428f5c84e",
+        iOSSettings: {
+          OSiOSSettings.autoPrompt: false,
+          OSiOSSettings.inAppLaunchUrl: false
         });
-       // _setMessage(message);
-      },
-      onLaunch: (Map<String, dynamic> message) async {
-        print("onLaunch: $message");
-      //  _setMessage(message);
-      },
-      onResume: (Map<String, dynamic> message) async {
-        print("onResume: $message");
-       // _setMessage(message);
-      },
-    );
+    OneSignal.shared
+        .setInFocusDisplayType(OSNotificationDisplayType.notification);
+    OneSignal.shared.setNotificationReceivedHandler((notification) {
+      setState(() {
+        notifyContent =  notification.jsonRepresentation().replaceAll('\\n', '\n');
+      });
+    });
   }
 
   @override
@@ -111,17 +76,6 @@ super.initState();
         textDirection: TextDirection.rtl,
         child: Scaffold(
           appBar: AppBar(
-<<<<<<< HEAD
-            // actions: [
-            //   IconButton(
-            //       icon: Icon(Icons.search),
-            //       onPressed: () {
-            //         showSearch(
-            //             context: context,
-            //             delegate: DataSearch(list: listsearch));
-            //       })
-            // ],
-=======
             actions: [
               IconButton(
                   icon: Icon(Icons.search),
@@ -130,36 +84,25 @@ super.initState();
                         context: context,
                         delegate: DataSearch(list: listsearch));
                   }),
-                  IconButton(
+              IconButton(
                   icon: Icon(Icons.notification_important),
                   onPressed: () {
-                     Navigator.push(context,MaterialPageRoute(builder: (context) =>  PushLocalNotification()),);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => PushLocalNotification()),
+                    );
                   }),
-                  
             ],
->>>>>>> b4b546443123916b26fc8ae24f35a2387469236a
             title: Center(
                 child: Text(
-              "دليلك الشامل في مصر",
+              "دليل اليمنيين الشامل في مصر",
               style: TextStyle(
                   fontSize: 18,
                   color: Colors.white,
                   fontWeight: FontWeight.w800,
                   fontFamily: "Cairo"),
             )),
-            leading: IconButton(
-              icon: CircleAvatar(
-                child: Image.asset("assets/images/whatsapp.png"),
-                radius: 12,
-              ),
-              onPressed: () {
-                launchWhatsapp(
-                    number: "0201557772228",
-                    message:
-                        "مرحباً بك ...ماهي الاضافة التي تود وجودها في التطبيق؟ " +
-                            "\n ");
-              },
-            ),
           ),
           //  drawer: Center(child: MyDrawer()),
           body: ListView(
@@ -175,7 +118,7 @@ super.initState();
               ),
               Container(
                 height: 400,
-                color: Colors.white,
+                color: Colors.blueGrey,
                 child: CategoryScreenHomePage(),
               )
             ],
@@ -183,10 +126,12 @@ super.initState();
         ),
       ),
       routes: {
-        Section.routName: (context) =>  Section(),
+        DetailPage.routName: (context) => DetailPage(),
+        Section.routName: (context) => Section(),
         Tips.routName: (context) => Tips(),
         TipsPage.routName: (context) => TipsPage(),
         CarouselPage.routName: (context) => CarouselPage(),
+        Details.routName: (context) => Details(),
       },
     );
   }
@@ -240,9 +185,4 @@ class DataSearch extends SearchDelegate<String> {
           );
         });
   }
-}
-
-void launchWhatsapp({@required number, @required message}) async {
-  String url = "whatsapp://send?phone=$number&text=$message";
-  await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
 }
