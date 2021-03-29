@@ -32,6 +32,10 @@ class _DetailsState extends State<Details> {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: Colors.white),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
           title: Center(
             child: Text(
               detailsTitle,

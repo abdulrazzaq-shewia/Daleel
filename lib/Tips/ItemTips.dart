@@ -33,9 +33,9 @@ class ItemTips extends StatelessWidget {
         borderRadius: BorderRadius.circular(5),
         child: Card(
           elevation: 7,
-          color: Colors.green.shade200,
+          color: Colors.green.withOpacity(0.3),
           child: Container(
-            margin: EdgeInsets.all(3),
+            margin: EdgeInsets.all(2),
 
             padding: EdgeInsets.all(10),
             child: Row(

@@ -16,6 +16,8 @@ class CategoryItemHome extends StatelessWidget {
   );
 
   void selectHome(BuildContext ctx) {
+    // Navigator.push(ctx,MaterialPageRoute(builder: (context) => Section  (id:home_id,title:home_title,newCollection:newCollection)),);
+
     Navigator.of(ctx).pushNamed(Section.routName, arguments: {
       "home_id": home_id,
       "home_title": home_title,
@@ -41,7 +43,7 @@ class CategoryItemHome extends StatelessWidget {
           color: Colors.green.withOpacity(0.5),
           child: Container(
             padding: EdgeInsets.all(15),
-            margin: EdgeInsets.all(3),
+            margin: EdgeInsets.all(2),
             child: Row(
               // mainAxisAlignment: MainAxisAlignment.center,
               children: [

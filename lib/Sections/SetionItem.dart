@@ -18,6 +18,7 @@ class SectionItem extends StatelessWidget {
   );
 
   void selecSection(BuildContext ctx) {
+
     Navigator.of(ctx).pushNamed(Details.routName, arguments: {
       "id": Sections_id,
       "title": Sections_title,

@@ -11,6 +11,8 @@ class Tips extends StatefulWidget {
 }
 
 class _TipsState extends State<Tips> {
+
+  @override
   Widget build(BuildContext context) {
     List<CategoryDataTips> myData = [];
     final routTips =

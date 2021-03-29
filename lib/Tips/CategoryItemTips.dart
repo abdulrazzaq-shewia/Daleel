@@ -32,12 +32,13 @@ class CategoryItemTips extends StatelessWidget {
       splashColor: Colors.deepOrange,
       borderRadius: BorderRadius.circular(5),
       child: Card(
-        color: Colors.deepPurpleAccent.withOpacity(0.5),
+        elevation: 5,
+        color: Colors.indigo.withOpacity(0.4),
         child: Container(
           height: 85,
           width: 85,
           padding: EdgeInsets.all(4),
-          margin: EdgeInsets.all(3),
+          margin: EdgeInsets.all(2),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

@@ -50,7 +50,7 @@ class _SplashState extends State<Splash> {
                     navigateAfterSeconds: HomePage(),
                   );
                 } else {
-                  return Text("Hey");
+                  return Text("");
                 }
               })),
     );

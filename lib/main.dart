@@ -1,13 +1,10 @@
 import 'package:daleel_yemen_cairo/HomePage.dart';
 import 'package:daleel_yemen_cairo/Notification/Notification.dart';
 import 'package:daleel_yemen_cairo/PView.dart';
-<<<<<<< HEAD
 import 'file:///E:/Flutter+Dart/Program/daleel_yemen_cairo/lib/Splash/Splash.dart';
-=======
 import 'package:daleel_yemen_cairo/PushNotification/push_notification.dart';
-import 'package:daleel_yemen_cairo/Splash.dart';
+//import 'package:daleel_yemen_cairo/Splash.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
->>>>>>> b4b546443123916b26fc8ae24f35a2387469236a
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:shared_preferences/shared_preferences.dart';

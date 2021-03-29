@@ -1,7 +1,7 @@
 import 'dart:async';
+import 'package:daleel_yemen_cairo/Splash/Splash.dart';
 import 'package:page_view_indicator/page_view_indicator.dart';
 import 'package:daleel_yemen_cairo/HomePage.dart';
-import 'file:///E:/Flutter+Dart/Program/daleel_yemen_cairo/lib/Splash/Splash.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -36,20 +36,20 @@ class _PViewState extends State<PView> {
     Data(
       title: "دليل اليمنيين الشامل في مصر",
       description: "كل مايخص المغترب اليمني في مصر",
-      image: "assets/images/PView1.jpg",
+      image: "assets/images/OnBording1.png",
       iconData: Icons.auto_stories,
     ),
     Data(
       title: "دليل اليمنيين الشامل في مصر",
       description: "مرحباً بك في تطبيقك الخدمي والاستشاري",
-      image: "assets/images/PView2.jpg",
+      image: "assets/images/OnBording2.png",
       iconData: Icons.home,
     ),
     Data(
       title: "دليل اليمنيين الشامل في مصر",
       description:
-          "لاتتردد في تجرية التطبيق وإضافة ملاحظاتك لتحسين جودة التطبيق لاتتردد في تجرية التطبيق وإضافة ملاحظاتك لتحسين جودة التطبيق",
-      image: "assets/images/PView3.jpg",
+          "لاتتردد في تجرية التطبيق وإضافة ملاحظاتك لتحسين جودة التطبيق لاتتردد في تجرية التطبيق وإضافة ملاحظاتك لتحسين جودة التطبيقلاتتردد في تجرية التطبيق وإضافة ملاحظاتك لتحسين جودة التطبيق لاتتردد في تجرية التطبيق وإضافة ملاحظاتك لتحسين جودة التطبيقلاتتردد في تجرية التطبيق وإضافة ملاحظاتك لتحسين جودة التطبيق ",
+      image: "assets/images/OnBording3.png",
       iconData: Icons.add_location_outlined,
     ),
   ];
@@ -81,44 +81,52 @@ class _PViewState extends State<PView> {
                     controller: controller,
                     children: myData
                         .map((item) => Container(
+
                               decoration: BoxDecoration(
                                   image: DecorationImage(
                                 image: ExactAssetImage(item.image),
                                 fit: BoxFit.cover,
                               )),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    item.iconData,
-                                    color: Colors.white,
-                                    size: 100,
+                              child: Center(
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(horizontal: 10),
+                                  margin: EdgeInsets.all(10),
+
+                                  width: double.infinity,
+                                  height: 400,
+                                  child: Card(
+                                    elevation: 10,
+                                    color: Colors.white.withOpacity(0.15),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+
+
+                                        Text(
+                                          item.title,
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.deepOrange,
+                                              fontWeight: FontWeight.w900,
+                                              fontFamily: "Cairo"),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Text(
+                                          item.description,
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w800,
+                                              fontFamily: "Cairo"),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                  SizedBox(
-                                    height: 30,
-                                  ),
-                                  Text(
-                                    item.title,
-                                    style: TextStyle(
-                                        fontSize: 22,
-                                        color: Colors.blue,
-                                        fontWeight: FontWeight.w900,
-                                        fontFamily: "Cairo"),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  SizedBox(
-                                    height: 30,
-                                  ),
-                                  Text(
-                                    item.description,
-                                    style: TextStyle(
-                                        fontSize: 18,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w800,
-                                        fontFamily: "Cairo"),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ],
+                                ),
                               ),
                             ))
                         .toList(),
@@ -155,7 +163,7 @@ class _PViewState extends State<PView> {
                       ),
                       child: Icon(
                         Icons.star,
-                        size: 20.0,
+                        size: 25.0,
                         color: Colors.deepOrange,
 
                       ),

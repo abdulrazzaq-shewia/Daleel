@@ -19,6 +19,7 @@ class ItemDetail extends StatelessWidget {
   });
 
   void selectDetail(BuildContext ctx) {
+
     Navigator.of(ctx).push(
       MaterialPageRoute(
         builder: (context) => DetailPage(
@@ -29,6 +30,8 @@ class ItemDetail extends StatelessWidget {
           phone: phone,
           image: image,
         ),
+
+          settings: RouteSettings(name: '/DetailPage')
       ),
     );
   }
