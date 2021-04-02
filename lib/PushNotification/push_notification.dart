@@ -1,3 +1,6 @@
+import 'package:daleel_yemen_cairo/PushNotification/Data_push_Notification.dart';
+import 'package:daleel_yemen_cairo/PushNotification/Detaile_Push.dart';
+import 'package:daleel_yemen_cairo/PushNotification/ItemPush.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -39,19 +42,54 @@ class _PushLocalNotificationState extends State<PushLocalNotification> {
         'The body of the notification', generalNotificationDetails);
   }
 
+  List<PushNotification> myMessages = [];
+
+  Future getMyMessages() async {
+    myMessages = await PushNotification.readMessage();
+    return myMessages;
+    // setState(() {
+    // });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          actions: [],
-          title: Text('Search'),
+      appBar: AppBar(
+        title: Center(
+          child: Text(
+            "الاشعارات",
+            style: TextStyle(
+                fontSize: 18,
+                color: Colors.white,
+                fontWeight: FontWeight.w700,
+                fontFamily: "Cairo"),
+          ),
         ),
-        body: Text("YEs"),
-        floatingActionButton: FloatingActionButton(
-          onPressed: _showNotification,
-          child: Icon(Icons.notification_important),
-        ),
-      
+      ),
+      body: FutureBuilder(
+        future: getMyMessages(),
+        builder: (ctx, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return ListView(
+              scrollDirection: Axis.vertical,
+              children: myMessages //
+                  .map(
+                    (catPush) => ItemPush(
+                      catPush.id,
+                      catPush.image,
+                      catPush.date,
+                      catPush.title,
+                      catPush.description,
+                      catPush.phone,
+                    ),
+                  )
+                  .toList(),
+            );
+          } else {
+            return new CircularProgressIndicator();
+          }
+        },
+      ),
     );
   }
 }

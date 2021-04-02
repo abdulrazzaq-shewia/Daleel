@@ -15,11 +15,15 @@ Future getMyFolder()async{
 class _CategoryScreenHomePageState extends State<CategoryScreenHomePage> {
   @override
   Widget build(BuildContext context) {
+
     return FutureBuilder(
       future: getMyFolder(),
     builder: (context,snapshot){
+
       return ListView(
-          padding: EdgeInsets.all(5),
+          scrollDirection: Axis.vertical,
+
+          padding: EdgeInsets.all(2),
 
           children: myFolder
               .map((catHome) => CategoryItemHome(

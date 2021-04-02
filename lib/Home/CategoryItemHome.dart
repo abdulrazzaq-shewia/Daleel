@@ -39,11 +39,11 @@ class CategoryItemHome extends StatelessWidget {
         splashColor: Colors.deepOrange,
         borderRadius: BorderRadius.circular(5),
         child: Card(
-          elevation: 5,
-          color: Colors.green.withOpacity(0.5),
+          elevation: 7,
+          color: Colors.green.withOpacity(0.7),
           child: Container(
             padding: EdgeInsets.all(15),
-            margin: EdgeInsets.all(2),
+            margin: EdgeInsets.all(1),
             child: Row(
               // mainAxisAlignment: MainAxisAlignment.center,
               children: [

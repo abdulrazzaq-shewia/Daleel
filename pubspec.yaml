@@ -35,7 +35,13 @@ dependencies:
   firebase_core: ^0.4.0+9
   firebase_analytics: ^5.0.2
   flutter_phone_direct_caller: ^1.0.1
-  firebase_messaging: ^6.0.13
+  #firebase_messaging: ^6.0.13
+
+
+  #firebase_messaging: ^6.0.13
+  firebase_messaging: ^6.0.9
+
+
 
 
   share: ^2.0.1
@@ -50,6 +56,7 @@ dependencies:
 #  firebase_auth: ^0.14.0+5
 
   flutter_local_notifications: ^3.0.1+6
+  onesignal_flutter: ^2.0.0
   
 
 dev_dependencies:

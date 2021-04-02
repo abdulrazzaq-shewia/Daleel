@@ -33,23 +33,28 @@ class ItemTips extends StatelessWidget {
         borderRadius: BorderRadius.circular(5),
         child: Card(
           elevation: 7,
-          color: Colors.green.withOpacity(0.3),
+          color: Colors.blue.withOpacity(0.5),
           child: Container(
-            margin: EdgeInsets.all(2),
+            margin: EdgeInsets.all(1),
 
             padding: EdgeInsets.all(10),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                Icon(Icons.circle,color: Colors.deepOrange,),
 
-
-                Text(
-                  title_description,
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.blue,
-                      fontWeight: FontWeight.w700,
-                      fontFamily: "Cairo"),
+                SizedBox(width: 10,),
+                Container(
+                  // width: 300,
+                  child: Expanded(
+                    child: Text(
+                      title_description,
+                      style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.blue,
+                          fontWeight: FontWeight.w700,
+                          fontFamily: "Cairo"),
+                    ),
+                  ),
                 ),
               ],
             ),

@@ -1,7 +1,6 @@
 import 'package:daleel_yemen_cairo/Tips/CategoryItemTips.dart';
 import 'package:daleel_yemen_cairo/Tips/Category_Tips.dart';
 import 'package:daleel_yemen_cairo/Tips/FirebaseFunctionTipsFolder.dart';
-import 'package:daleel_yemen_cairo/Tips/dummy_data_tips.dart';
 import 'package:flutter/material.dart';
 
 class CategoryScreenTips extends StatefulWidget {

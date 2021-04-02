@@ -3,109 +3,87 @@ import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class DetailPage extends StatelessWidget {
-  static const routName = "DetailPage";
+class DetailsPush extends StatelessWidget {
+  static const routName = "DetailsPush";
 
   String id;
-  String job;
-  String name;
-  String location;
-  String phone;
   String image;
-  DetailPage({
+  String title;
+  String description;
+  String phone;
+
+  DetailsPush({
     this.id,
-    this.job,
-    this.name,
-    this.location,
-    this.phone,
     this.image,
+    this.title,
+    this.description,
+    this.phone,
   });
 
-  // Future phoneCall(String phoneNumber) async {
-  //   await FlutterPhoneDirectCaller.directCall(phoneNumber);
-  // }
   Future phoneCall(String phoneNumber) async {
-    String url = 'tel:' + phoneNumber;
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
+    await FlutterPhoneDirectCaller.directCall(phoneNumber);
   }
 
   @override
   Widget build(BuildContext context) {
-    var  newSize = MediaQuery.of(context).size.height;
-
-    final  Map<String, Object>data = ModalRoute.of(context).settings.arguments;
+    final Map<String, Object> data = ModalRoute.of(context).settings.arguments;
     id = data["id"];
-    job = data["job"];
-    name = data["name"];
-    location = data["location"];
-    phone = data["phone"];
     image = data["image"];
-
-
-
+    title = data["title"];
+    description = data["description"];
+    phone = data["phone"];
 
     return Directionality(
-        textDirection: TextDirection.rtl,
-        // child:  WillPopScope(
-        //   onWillPop: () async {
-        //     return Navigator.canPop(context);
-        //   },
-          child: Scaffold(
-            appBar: AppBar(
-              // leading: IconButton(
-              //   icon: Icon(Icons.arrow_back, color: Colors.white),
-              //   onPressed: () => Navigator.of(context).pop(),
-              // ),
-
-              title: Center(
-                  child: Text(
-                name,
-                style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w800,
-                    fontFamily: "Cairo"),
-              )),
-            ),
-            body: Card(
-              color: Colors.white,
-              shape:
-                  RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-              elevation: 5,
-              margin: EdgeInsets.all(3),
-              child: ListView(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Center(
+              child: Text(
+            title,
+            style: TextStyle(
+                fontSize: 18,
+                color: Colors.white,
+                fontWeight: FontWeight.w800,
+                fontFamily: "Cairo"),
+          )),
+        ),
+        body: Card(
+          color: Colors.white,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          elevation: 5,
+          margin: EdgeInsets.all(3),
+          child: ListView(
+            children: [
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                height: 200,
+                child: Image.network(
+                  image,
+                  // fit: BoxFit.cover,
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Column(
                 children: [
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    child: CircleAvatar(
-                      backgroundColor: Colors.grey,
-                      child: Image.network(image),
-                      radius: 60,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
                   Container(
                     margin: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
                     child: Row(
                       children: [
-                        Icon(
-                          Icons.person,
-                          color: Colors.blue,
-                        ),
+                        // Icon(
+                        //   Icons.person,
+                        //   color: Colors.blue,
+                        // ),
                         SizedBox(
                           width: 10,
                         ),
                         Expanded(
                           child: Text(
-                            name,
+                            title,
                             style: TextStyle(
                                 fontSize: 18,
                                 color: Colors.blue,
@@ -127,52 +105,23 @@ class DetailPage extends StatelessWidget {
                     margin: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
                     child: Row(
                       children: [
-                        Icon(
-                          Icons.home_repair_service,
-                          color: Colors.green,
-                        ),
+                        // Icon(
+                        //   Icons.home_repair_service,
+                        //   color: Colors.green,
+                        // ),
                         SizedBox(
                           width: 10,
                         ),
-                        Expanded(
-                          child: Text(
-                            job,
-                            style: TextStyle(
-                                fontSize: 18,
-                                color: Colors.green,
-                                fontWeight: FontWeight.w800,
-                                fontFamily: "Cairo"),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Divider(
-                    height: 10,
-                    thickness: 2,
-                    indent: 25,
-                    endIndent: 130,
-                    color: Colors.grey,
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.location_on_outlined,
-                          color: Colors.deepOrange,
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Expanded(
-                          child: Text(
-                            location,
-                            style: TextStyle(
-                                fontSize: 18,
-                                color: Colors.redAccent,
-                                fontWeight: FontWeight.w800,
-                                fontFamily: "Cairo"),
+                        Container(
+                          child: Expanded(
+                            child: Text(
+                              description,
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.green,
+                                  fontWeight: FontWeight.w800,
+                                  fontFamily: "Cairo"),
+                            ),
                           ),
                         ),
                       ],
@@ -186,7 +135,7 @@ class DetailPage extends StatelessWidget {
                     color: Colors.grey,
                   ),
                   SizedBox(
-                    height: 50,
+                    height: 10,
                   ),
                   Container(
                     height: 50,
@@ -238,14 +187,14 @@ class DetailPage extends StatelessWidget {
                                       RenderBox box =
                                           context.findRenderObject();
                                       Share.share(
-                                        name +
+                                        title +
                                             "\n " +
-                                            job +
+                                            description +
                                             "\n " +
                                             "لمعرفة باقي التفاصيل يرجى تنزيل التطبيق من الرابط" +
                                             "\n " +
                                             "رابط التطبيق",
-                                        subject: job,
+                                        subject: description,
                                         sharePositionOrigin:
                                             box.localToGlobal(Offset.zero) &
                                                 box.size,
@@ -276,7 +225,7 @@ class DetailPage extends StatelessWidget {
                                         number: "+201559091400",
                                         message: "تقديم شكوى بخصوص :" +
                                             "\n " +
-                                            name +
+                                            title+
                                             "\n ");
                                   },
                                 ),
@@ -287,12 +236,14 @@ class DetailPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  // ignore: deprecated_member_use
                 ],
               ),
-            ),
+              // ignore: deprecated_member_use
+            ],
           ),
-        );
+        ),
+      ),
+    );
   }
 }
 

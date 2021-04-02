@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:daleel_yemen_cairo/Splash/Splash.dart';
 import 'package:page_view_indicator/page_view_indicator.dart';
 import 'package:daleel_yemen_cairo/HomePage.dart';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -67,13 +68,7 @@ class _PViewState extends State<PView> {
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
-      child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          routes: {
-            "/a": (ctx) => HomePage(),
-            "/b": (ctx) => Splash(),
-          },
-          home: Scaffold(
+      child:  Scaffold(
             body: Stack(
               children: [
                 Builder(
@@ -202,8 +197,7 @@ class _PViewState extends State<PView> {
                 )
               ],
             ),
-          )),
-    );
+          ));
   }
 }
 

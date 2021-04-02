@@ -52,10 +52,9 @@ class _TipsState extends State<Tips> {
           future: getMyData(),
           builder: (ctx, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
-            //  print("FUTRUEBUILDER IS HERE");
               return ListView(
                 scrollDirection: Axis.vertical,
-                children: myData //  CAROUSEL_DATA_CATEGORY
+                children: myData
                     .map(
                       (carImage) => ItemTips(
                         carImage.id,

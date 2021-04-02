@@ -19,9 +19,7 @@ class _SplashState extends State<Splash> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return  Scaffold(
           body: FutureBuilder(
               future: getSplash(),
               builder: (context, snapshot) {
@@ -52,7 +50,6 @@ class _SplashState extends State<Splash> {
                 } else {
                   return Text("");
                 }
-              })),
-    );
+              }));
   }
 }
