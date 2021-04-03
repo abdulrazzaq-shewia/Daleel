@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class ItemTips extends StatelessWidget {
   final String id;
+  // ignore: non_constant_identifier_names
   final String title_description;
   final List<String> description;
 

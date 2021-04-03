@@ -2,8 +2,11 @@ import 'package:daleel_yemen_cairo/Details/Details.dart';
 import 'package:flutter/material.dart';
 
 class SectionItem extends StatelessWidget {
+  // ignore: non_constant_identifier_names
   final String Sections_id;
+  // ignore: non_constant_identifier_names
   final String Sections_image;
+  // ignore: non_constant_identifier_names
   final String Sections_title;
   final String newCollection;
   final String preID;

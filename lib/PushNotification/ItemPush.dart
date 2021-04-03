@@ -1,4 +1,3 @@
-import 'package:daleel_yemen_cairo/PushNotification/Detaile_Push.dart';
 import 'package:flutter/material.dart';
 
 class ItemPush extends StatelessWidget {

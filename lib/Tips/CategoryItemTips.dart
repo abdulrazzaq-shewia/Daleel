@@ -1,5 +1,3 @@
-import 'package:daleel_yemen_cairo/Tips/Category_data_tips.dart';
-import 'package:daleel_yemen_cairo/Tips/FirebaseFunctionTipsFolder.dart';
 import 'package:daleel_yemen_cairo/Tips/Tips.dart';
 import 'package:flutter/material.dart';
 
@@ -28,6 +26,7 @@ class CategoryItemTips extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String temp = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/How_to_use_icon.svg/1200px-How_to_use_icon.svg.png';
     return InkWell(
       splashColor: Colors.deepOrange,
       borderRadius: BorderRadius.circular(5),
@@ -44,7 +43,7 @@ class CategoryItemTips extends StatelessWidget {
             children: [
               CircleAvatar(
                 backgroundColor: Colors.grey,
-                child: Image.network(image),
+                child: ((image!=null) && (image != ""))? Image.network(image):Image.network(temp),
                 radius: 20,
               ),
               Text(

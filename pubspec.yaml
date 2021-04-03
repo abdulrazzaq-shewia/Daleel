@@ -35,6 +35,8 @@ dependencies:
   firebase_core: ^0.4.0+9
   firebase_analytics: ^5.0.2
   flutter_phone_direct_caller: ^1.0.1
+  file_picker: ^2.1.1
+  csv: ^4.0.2
   #firebase_messaging: ^6.0.13
 
 

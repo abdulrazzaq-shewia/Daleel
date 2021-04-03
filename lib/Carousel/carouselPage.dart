@@ -1,19 +1,26 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class CarouselPage extends StatelessWidget {
   static const routName = "CarouselPage";
 
+  // Future phoneCall(String phoneNumber) async {
+  //   await FlutterPhoneDirectCaller.directCall(phoneNumber);
+  // }
   Future phoneCall(String phoneNumber) async {
-    await FlutterPhoneDirectCaller.directCall(phoneNumber);
+    String url = 'tel:' + phoneNumber;
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    var newSize = MediaQuery.of(context).size.height;
+    //var newSize = MediaQuery.of(context).size.height;
     final myAds =
         ModalRoute.of(context).settings.arguments as Map<String, String>;
 

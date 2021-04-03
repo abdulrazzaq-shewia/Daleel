@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
+// ignore: must_be_immutable
 class TipsPage extends StatelessWidget {
   static const routName = "TipsPage";
   String id;
+  // ignore: non_constant_identifier_names
   String title_description;
   List<String> description;
 
   TipsPage({
     this.id,
+    // ignore: non_constant_identifier_names
     this.title_description,
     this.description,
   });
