@@ -6,7 +6,6 @@ buildscript {
     dependencies {
         // ...
         // OneSignal-Gradle-Plugin
-        implementation 'com.google.android.material:material:<version>'
 
         classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:[0.12.6, 0.99.99]'
     }

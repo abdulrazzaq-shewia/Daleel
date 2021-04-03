@@ -21,9 +21,13 @@ class DetailsPush extends StatelessWidget {
   });
 
   Future phoneCall(String phoneNumber) async {
-    await FlutterPhoneDirectCaller.directCall(phoneNumber);
+    String url = 'tel:' + phoneNumber;
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
-
   @override
   Widget build(BuildContext context) {
     final Map<String, Object> data = ModalRoute.of(context).settings.arguments;

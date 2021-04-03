@@ -8,9 +8,13 @@ class CarouselPage extends StatelessWidget {
   static const routName = "CarouselPage";
 
   Future phoneCall(String phoneNumber) async {
-    await FlutterPhoneDirectCaller.directCall(phoneNumber);
+    String url = 'tel:' + phoneNumber;
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
-
   @override
   Widget build(BuildContext context) {
     var newSize = MediaQuery.of(context).size.height;
