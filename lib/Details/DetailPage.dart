@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+// ignore: must_be_immutable
 class DetailPage extends StatelessWidget {
   static const routName = "DetailPage";
 
@@ -35,7 +35,7 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var  newSize = MediaQuery.of(context).size.height;
+    //var  newSize = MediaQuery.of(context).size.height;
 
     final  Map<String, Object>data = ModalRoute.of(context).settings.arguments;
     id = data["id"];

@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class CarouselPage extends StatelessWidget {
   static const routName = "CarouselPage";
 
+  // Future phoneCall(String phoneNumber) async {
+  //   await FlutterPhoneDirectCaller.directCall(phoneNumber);
+  // }
   Future phoneCall(String phoneNumber) async {
     String url = 'tel:' + phoneNumber;
     if (await canLaunch(url)) {
@@ -17,7 +19,7 @@ class CarouselPage extends StatelessWidget {
   }
   @override
   Widget build(BuildContext context) {
-    var newSize = MediaQuery.of(context).size.height;
+    //var newSize = MediaQuery.of(context).size.height;
     final myAds =
         ModalRoute.of(context).settings.arguments as Map<String, String>;
 
@@ -49,7 +51,7 @@ class CarouselPage extends StatelessWidget {
                     width: double.infinity,
                     child: Image.network(
                       myAds['image'],
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
                     )),
                 Row(
                   children: [

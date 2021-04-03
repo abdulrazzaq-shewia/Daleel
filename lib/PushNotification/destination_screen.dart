@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
  
 class DestinationScreen extends StatelessWidget {
  
-  String payload;
+  final String payload;
  
   DestinationScreen({this.payload});
  

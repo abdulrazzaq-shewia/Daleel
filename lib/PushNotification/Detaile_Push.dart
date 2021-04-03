@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+// ignore: must_be_immutable
 class DetailsPush extends StatelessWidget {
   static const routName = "DetailsPush";
 
@@ -20,6 +20,9 @@ class DetailsPush extends StatelessWidget {
     this.phone,
   });
 
+  // Future phoneCall(String phoneNumber) async {
+  //   await FlutterPhoneDirectCaller.directCall(phoneNumber);
+  // }
   Future phoneCall(String phoneNumber) async {
     String url = 'tel:' + phoneNumber;
     if (await canLaunch(url)) {

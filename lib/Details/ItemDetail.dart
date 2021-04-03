@@ -43,7 +43,10 @@ class ItemDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+   double width = MediaQuery.of(context).size.width;
+   double  height = MediaQuery.of(context).size.height;
+
+   return InkWell(
         child: Card(
           color: Colors.white,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -71,7 +74,7 @@ class ItemDetail extends StatelessWidget {
                         width: 5,
                       ),
                       Container(
-                        width: 200,
+                        width: width/1.5,
                         child: Text(
                           name,
                           style: TextStyle(
@@ -94,7 +97,7 @@ class ItemDetail extends StatelessWidget {
                         width: 5,
                       ),
                       Container(
-                        width: 200,
+                         width: width/1.5,
                         child: Text(
                           job,
                           style: TextStyle(

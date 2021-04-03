@@ -1,7 +1,5 @@
 import 'dart:async';
-import 'package:daleel_yemen_cairo/Splash/Splash.dart';
 import 'package:page_view_indicator/page_view_indicator.dart';
-import 'package:daleel_yemen_cairo/HomePage.dart';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -49,7 +47,7 @@ class _PViewState extends State<PView> {
     Data(
       title: "دليل اليمنيين الشامل في مصر",
       description:
-          "لاتتردد في تجرية التطبيق وإضافة ملاحظاتك لتحسين جودة التطبيق لاتتردد في تجرية التطبيق وإضافة ملاحظاتك لتحسين جودة التطبيقلاتتردد في تجرية التطبيق وإضافة ملاحظاتك لتحسين جودة التطبيق لاتتردد في تجرية التطبيق وإضافة ملاحظاتك لتحسين جودة التطبيقلاتتردد في تجرية التطبيق وإضافة ملاحظاتك لتحسين جودة التطبيق ",
+          "لاتتردد في تجرية التطبيق وإضافة ملاحظاتك لتحسين جودة التطبيق",
       image: "assets/images/OnBording3.png",
       iconData: Icons.add_location_outlined,
     ),

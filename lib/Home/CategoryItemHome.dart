@@ -4,8 +4,11 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
 class CategoryItemHome extends StatelessWidget {
+  // ignore: non_constant_identifier_names
   final String home_id;
+  // ignore: non_constant_identifier_names
   final String home_image;
+  // ignore: non_constant_identifier_names
   final String home_title;
   final String newCollection;
   CategoryItemHome(
@@ -26,7 +29,7 @@ class CategoryItemHome extends StatelessWidget {
   }
   getMyToken()async{
     final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
-    String token = '';
+    //String token = '';
     print("get my token ");
     await _firebaseMessaging.getToken().then((deviceToken) {
       print("The token is here: $deviceToken" );

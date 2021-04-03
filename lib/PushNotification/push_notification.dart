@@ -1,5 +1,4 @@
 import 'package:daleel_yemen_cairo/PushNotification/Data_push_Notification.dart';
-import 'package:daleel_yemen_cairo/PushNotification/Detaile_Push.dart';
 import 'package:daleel_yemen_cairo/PushNotification/ItemPush.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +13,6 @@ class _PushLocalNotificationState extends State<PushLocalNotification> {
   FlutterLocalNotificationsPlugin localNotificationsPlugin;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     var androidInitialize = new AndroidInitializationSettings('ic_launcher');
     var iosIntialize = new IOSInitializationSettings();
@@ -31,16 +29,16 @@ class _PushLocalNotificationState extends State<PushLocalNotification> {
         builder: (context) => AlertDialog(content: Text('Hello')));
   }
 
-  Future _showNotification() async {
-    var androidDetails = new AndroidNotificationDetails(
-        'channelId', 'Local Notification', 'channelDescription',
-        importance: Importance.high);
-    var iosDetails = new IOSNotificationDetails();
-    var generalNotificationDetails =
-        new NotificationDetails(android: androidDetails, iOS: iosDetails);
-    await localNotificationsPlugin.show(0, 'Notify Title',
-        'The body of the notification', generalNotificationDetails);
-  }
+  // Future _showNotification() async {
+  //   var androidDetails = new AndroidNotificationDetails(
+  //       'channelId', 'Local Notification', 'channelDescription',
+  //       importance: Importance.high);
+  //   var iosDetails = new IOSNotificationDetails();
+  //   var generalNotificationDetails =
+  //       new NotificationDetails(android: androidDetails, iOS: iosDetails);
+  //   await localNotificationsPlugin.show(0, 'Notify Title',
+  //       'The body of the notification', generalNotificationDetails);
+  // }
 
   List<PushNotification> myMessages = [];
 

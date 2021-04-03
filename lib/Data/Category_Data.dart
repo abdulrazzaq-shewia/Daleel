@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class CategoryData {
    String id;
    String job;

@@ -1,17 +1,8 @@
-import 'package:daleel_yemen_cairo/Carousel/carouselPage.dart';
 import 'package:daleel_yemen_cairo/Carousel/mycarousel.dart';
-import 'package:daleel_yemen_cairo/Details/DetailPage.dart';
-import 'package:daleel_yemen_cairo/Details/Details.dart';
 import 'package:daleel_yemen_cairo/Home/CategoryScreenHomePage.dart';
-import 'package:daleel_yemen_cairo/PushNotification/Detaile_Push.dart';
 import 'package:daleel_yemen_cairo/PushNotification/push_notification.dart';
-import 'package:daleel_yemen_cairo/Sections/Section.dart';
 import 'package:daleel_yemen_cairo/Tips/CategoryScreenTips.dart';
-import 'package:daleel_yemen_cairo/Tips/Tips.dart';
-import 'package:daleel_yemen_cairo/Tips/TipsPage.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 class HomePage extends StatefulWidget {
@@ -35,9 +26,9 @@ class _HomePageState extends State<HomePage> {
   void initState() {
 //////////////////
 
-    int _counter = 0;
+    //int _counter = 0;
 
-    final _firebaseMessaging = FirebaseMessaging();
+    //final _firebaseMessaging = FirebaseMessaging();
     super.initState();
     configeration();
 
@@ -53,7 +44,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void configeration() async {
-    String notifyContent = "";
+   // String notifyContent = "";
     await OneSignal.shared.init(
         "b1c8f3f3-b844-46e9-8243-53d428f5c84e",
         iOSSettings: {
@@ -64,7 +55,7 @@ class _HomePageState extends State<HomePage> {
         .setInFocusDisplayType(OSNotificationDisplayType.notification);
     OneSignal.shared.setNotificationReceivedHandler((notification) {
       setState(() {
-        notifyContent =  notification.jsonRepresentation().replaceAll('\\n', '\n');
+       // notifyContent =  notification.jsonRepresentation().replaceAll('\\n', '\n');
       });
     });
   }
