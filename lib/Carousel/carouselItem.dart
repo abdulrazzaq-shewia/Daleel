@@ -30,10 +30,11 @@ class CarouselItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return Container(
-      width: double.infinity,
-      height: double.infinity,
-      //  margin: EdgeInsets.symmetric(horizontal: 10),
+      width: width,
+      height: height,
       child: InkWell(
         child: Image.network(
           image,

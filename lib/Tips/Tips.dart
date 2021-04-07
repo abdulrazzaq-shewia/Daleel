@@ -11,9 +11,11 @@ class Tips extends StatefulWidget {
 }
 
 class _TipsState extends State<Tips> {
-
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+
     List<CategoryDataTips> myData = [];
     final routTips =
         ModalRoute.of(context).settings.arguments as Map<String, String>;
@@ -30,9 +32,6 @@ class _TipsState extends State<Tips> {
     }
 
     final tipsTitle = routTips["title"];
-    // var catTips = myData.where((detail) {
-    //   return detail.categories.contains(tipsId);
-    // }).toList();
 
     return Directionality(
       textDirection: TextDirection.rtl,

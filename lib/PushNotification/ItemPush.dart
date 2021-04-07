@@ -19,6 +19,9 @@ class ItemPush extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double  height = MediaQuery.of(context).size.height;
+
     return Directionality(
       textDirection: TextDirection.rtl,
       child: InkWell(
@@ -31,7 +34,7 @@ class ItemPush extends StatelessWidget {
             elevation: 7,
             margin: EdgeInsets.all(5),
             child: Container(
-              margin: EdgeInsets.all(2),
+              margin: EdgeInsets.all(1),
               padding: EdgeInsets.all(5),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -51,7 +54,7 @@ class ItemPush extends StatelessWidget {
                         child: Text(
                           title,
                           style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 16,
                               color: Colors.blue,
                               fontWeight: FontWeight.w700,
                               fontFamily: "Cairo"),
@@ -61,10 +64,12 @@ class ItemPush extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    DateTime.now().toString(),
+                    DateTime.now().day.toString() + "/" +
+                        DateTime.now().month.toString()+ "/" +
+                        DateTime.now().year.toString(),
                     style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.blue,
+                        fontSize: 16,
+                        color: Colors.blueGrey,
                         fontWeight: FontWeight.w700,
                         fontFamily: "Cairo"),
                   )

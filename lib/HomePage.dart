@@ -4,6 +4,7 @@ import 'package:daleel_yemen_cairo/PushNotification/push_notification.dart';
 import 'package:daleel_yemen_cairo/Tips/CategoryScreenTips.dart';
 import 'package:flutter/material.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -11,42 +12,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var listsearch = [];
-  Future getData() async {
-    // var url = "";
-    // var response = await http.get(url);
-    // var responsebody = jsonDecode(response.body);
-    // for (int i = 0; i < responsebody.length; i++) {
-    //   listsearch.add(responsebody[i]["title"]);
-    // }
-    // print(listsearch);
-  }
+
 
   @override
   void initState() {
-//////////////////
 
-    //int _counter = 0;
-
-    //final _firebaseMessaging = FirebaseMessaging();
     super.initState();
     configeration();
 
-    // var initializationSettingsAndroid =
-    //     new AndroidInitializationSettings('@mipmap/ic_launcher');
-    // var initializationSettingsIOS = new IOSInitializationSettings();
-    // var initializationSettings = new InitializationSettings(
-    //     initializationSettingsAndroid  );
 
-    // var flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
-    // flutterLocalNotificationsPlugin.initialize(initializationSettings,
-    //     onSelectNotification: onSelectNotification);
   }
 
   void configeration() async {
-   // String notifyContent = "";
-    await OneSignal.shared.init(
-        "b1c8f3f3-b844-46e9-8243-53d428f5c84e",
+    await OneSignal.shared.init("b1c8f3f3-b844-46e9-8243-53d428f5c84e",
         iOSSettings: {
           OSiOSSettings.autoPrompt: false,
           OSiOSSettings.inAppLaunchUrl: false
@@ -55,127 +33,84 @@ class _HomePageState extends State<HomePage> {
         .setInFocusDisplayType(OSNotificationDisplayType.notification);
     OneSignal.shared.setNotificationReceivedHandler((notification) {
       setState(() {
-       // notifyContent =  notification.jsonRepresentation().replaceAll('\\n', '\n');
+        // notifyContent =  notification.jsonRepresentation().replaceAll('\\n', '\n');
       });
     });
   }
 
+  void launchWhatsapp({@required number, @required message}) async {
+    String url = "whatsapp://send?phone=$number&text=$message";
+    await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
+  }
+
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
 
-    return  Directionality(
-        textDirection: TextDirection.rtl,
-        child: Scaffold(
-          appBar: AppBar(
-            actions: [
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: AppBar(
+          actions: [
+            IconButton(
+                alignment: Alignment.centerLeft,
+                icon: Icon(Icons.notification_important),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => PushLocalNotification()),
+              );
+            }),
+          ],
+          title: Center(
+              child: Text(
+            "دليل اليمنيين الشامل في مصر",
+            style: TextStyle(
+                fontSize: 18,
+                color: Colors.white,
+                fontWeight: FontWeight.w800,
+                fontFamily: "Cairo"),
+          )),
+          leading: InkWell(
+              onTap: () {
+                launchWhatsapp(
+                    number: "+201559091400",
+                    message: "ماهي الاضافة التي تود إضافتها للتطبيق ؟" +
+                        "\n "  );              },
+              child: Image.asset(
+                "assets/images/whatsapp.png",
 
-              IconButton(
-                  icon: Icon(Icons.notification_important),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => PushLocalNotification()),
-                    );
-                  }),
+                scale:20,
+              )),
+        ),
+        body: Container(
+          height: double.infinity,
+          child: ListView(
+
+            children: [
+              Container(
+                height: height/4.3,
+                width: width,
+                child: MyCarousel(),
+              ),
+              Container(
+                height: height/8,
+                child: CategoryScreenTips(),
+              ),
+              Container(
+                height: height/1.9,
+                width: width,
+                color: Colors.white,
+                child: CategoryScreenHomePage(),
+              )
             ],
-            title: Center(
-                child: Text(
-                  "دليل اليمنيين الشامل في مصر",
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w800,
-                      fontFamily: "Cairo"),
-                )),
-          ),
-          //  drawer: Center(child: MyDrawer()),
-          body: Container(
-            height:  double.infinity,
-            child: ListView(
-              // shrinkWrap: true,
-              // physics: ScrollPhysics(),
-              children: [
-                Container(
-                  height: 160,
-                  width: double.infinity,
-                  child: MyCarousel(),
-                ),
-                Container(
-                  height: 85,
-                  child: CategoryScreenTips(),
-                ),
-                Container(
-                  height: 400,
-                  width: double.infinity,
-                  color: Colors.white,
-                  child: CategoryScreenHomePage(),
-                )
-              ],
-            ),
           ),
         ),
-      );
-      // routes: {
-      //   DetailPage.routName: (context) => DetailPage(),
-      //   Section.routName: (context) => Section(),
-      //   Tips.routName: (context) => Tips(),
-      //   TipsPage.routName: (context) => TipsPage(),
-      //   CarouselPage.routName: (context) => CarouselPage(),
-      //   Details.routName: (context) => Details(),
-      //   DetailsPush.routName: (context) => DetailsPush(),
-      //
-      // },
+      ),
+    );
 
   }
 }
 
-class DataSearch extends SearchDelegate<String> {
-  List<dynamic> list;
-  DataSearch({this.list});
-  @override
-  List<Widget> buildActions(BuildContext context) {
-    //Action for AppBAr
-    return [
-      IconButton(
-          icon: Icon(Icons.clear),
-          onPressed: () {
-            query = "";
-          }),
-    ];
-  }
-
-  @override
-  Widget buildLeading(BuildContext context) {
-    //Icone Leading
-    return IconButton(
-        icon: Icon(Icons.arrow_back),
-        onPressed: () {
-          close(context, null);
-        });
-  }
-
-  @override
-  Widget buildResults(BuildContext context) {
-    // Results Search
-    return Text(query);
-  }
-
-  @override
-  Widget buildSuggestions(BuildContext context) {
-    var searchlist =
-    query.isEmpty ? list : list.where((p) => p.startsWith(query)).toList();
-    return ListView.builder(
-        itemCount: searchlist.length,
-        itemBuilder: (context, i) {
-          return ListTile(
-            leading: Icon(Icons.label_important_sharp),
-            title: Text(searchlist[i]),
-            onTap: () {
-              query = searchlist[i];
-              showResults(context);
-            },
-          );
-        });
-  }
-}

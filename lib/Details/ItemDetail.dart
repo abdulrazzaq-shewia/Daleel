@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class ItemDetail extends StatelessWidget {
   final String id;
@@ -27,18 +28,6 @@ class ItemDetail extends StatelessWidget {
       "image":image});
 
 
-    // Navigator.of(ctx).push(
-    //   MaterialPageRoute(
-    //     builder: (context) => DetailPage(
-    //       id: id,
-    //       job: job,
-    //       name: name,
-    //       location: location,
-    //       phone: phone,
-    //       image: image,
-    //     ),
-    //   ),
-    // );
   }
 
   @override
@@ -52,66 +41,77 @@ class ItemDetail extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           elevation: 10,
           margin: EdgeInsets.all(5),
-          child: Row(
-            children: [
-              SizedBox(
-                width: 10,
-              ),
-              CircleAvatar(
-                child: Image.network(image),
-                radius: 35,
-              ),
-              SizedBox(
-                width: 5,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.person, color: Colors.blue),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Container(
-                        width: width/1.5,
-                        child: Text(
-                          name,
-                          style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.blue,
-                              fontWeight: FontWeight.w800,
-                              fontFamily: "Cairo"),
+
+          child: Container(
+            height: height/7,
+            width: width,
+            child: ListView(
+
+              scrollDirection: Axis.horizontal,
+              children: [
+                SizedBox(
+                  width: 15,
+                ),
+                CircleAvatar(
+                  child: Image.network(image,fit: BoxFit.contain,),
+                  radius: 35,
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.person, color: Colors.blue),
+                        SizedBox(
+                          width: 5,
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 10),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.work,
-                        color: Colors.green,
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Container(
-                         width: width/1.5,
-                        child: Text(
-                          job,
-                          style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.green,
-                              fontWeight: FontWeight.w800,
-                              fontFamily: "Cairo"),
+                        Container(
+                          width: width/1.5,
+                          child: Expanded(
+                            child: Text(
+                              name,
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.w800,
+                                  fontFamily: "Cairo"),
+                            ),
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ],
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.work,
+                          color: Colors.green,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Container(
+                           width: width/1.5,
+                          child: Expanded(
+                            child: Text(
+                              job,
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: Colors.green,
+                                  fontWeight: FontWeight.w800,
+                                  fontFamily: "Cairo"),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
         onTap: (){

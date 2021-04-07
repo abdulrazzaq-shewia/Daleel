@@ -29,64 +29,60 @@ class _PushLocalNotificationState extends State<PushLocalNotification> {
         builder: (context) => AlertDialog(content: Text('Hello')));
   }
 
-  // Future _showNotification() async {
-  //   var androidDetails = new AndroidNotificationDetails(
-  //       'channelId', 'Local Notification', 'channelDescription',
-  //       importance: Importance.high);
-  //   var iosDetails = new IOSNotificationDetails();
-  //   var generalNotificationDetails =
-  //       new NotificationDetails(android: androidDetails, iOS: iosDetails);
-  //   await localNotificationsPlugin.show(0, 'Notify Title',
-  //       'The body of the notification', generalNotificationDetails);
-  // }
+
 
   List<PushNotification> myMessages = [];
 
   Future getMyMessages() async {
     myMessages = await PushNotification.readMessage();
     return myMessages;
-    // setState(() {
-    // });
+
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Center(
-          child: Text(
-            "الاشعارات",
-            style: TextStyle(
-                fontSize: 18,
-                color: Colors.white,
-                fontWeight: FontWeight.w700,
-                fontFamily: "Cairo"),
+    double width = MediaQuery.of(context).size.width;
+    double  height = MediaQuery.of(context).size.height;
+
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Center(
+            child: Text(
+              "الاشعارات",
+              style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: "Cairo"),
+            ),
           ),
         ),
-      ),
-      body: FutureBuilder(
-        future: getMyMessages(),
-        builder: (ctx, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            return ListView(
-              scrollDirection: Axis.vertical,
-              children: myMessages //
-                  .map(
-                    (catPush) => ItemPush(
-                      catPush.id,
-                      catPush.image,
-                      catPush.date,
-                      catPush.title,
-                      catPush.description,
-                      catPush.phone,
-                    ),
-                  )
-                  .toList(),
-            );
-          } else {
-            return new CircularProgressIndicator();
-          }
-        },
+        body: FutureBuilder(
+          future: getMyMessages(),
+          builder: (ctx, snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              return ListView(
+                scrollDirection: Axis.vertical,
+                children: myMessages //
+                    .map(
+                      (catPush) => ItemPush(
+                        catPush.id,
+                        catPush.image,
+                        catPush.date,
+                        catPush.title,
+                        catPush.description,
+                        catPush.phone,
+                      ),
+                    )
+                    .toList(),
+              );
+            } else {
+              return new CircularProgressIndicator();
+            }
+          },
+        ),
       ),
     );
   }

@@ -34,6 +34,8 @@ class SectionItem extends StatelessWidget {
   void selectSection() {}
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return Directionality(
       textDirection: TextDirection.rtl,
       child: InkWell(
@@ -57,7 +59,7 @@ class SectionItem extends StatelessWidget {
                     radius: 35,
                   ),
                   SizedBox(
-                    width: 40,
+                    width: 20,
                   ),
                   Expanded(
                     child: Text(

@@ -27,6 +27,8 @@ class ItemTips extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return Directionality(
       textDirection: TextDirection.rtl,
       child: InkWell(
@@ -45,7 +47,6 @@ class ItemTips extends StatelessWidget {
 
                 SizedBox(width: 10,),
                 Container(
-                  // width: 300,
                   child: Expanded(
                     child: Text(
                       title_description,

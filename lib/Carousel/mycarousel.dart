@@ -19,7 +19,8 @@ class _MyCarouselState extends State<MyCarousel> {
   }
   @override
   Widget build(BuildContext context) {
-
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return ListView(children: [
       SizedBox(
         height: 5,
@@ -40,7 +41,7 @@ class _MyCarouselState extends State<MyCarousel> {
             )
                 .toList(),
             options: CarouselOptions(
-              height: 150,
+              height: height/4.5,
               initialPage: 0,
               scrollDirection: Axis.horizontal,
               enlargeCenterPage: true,

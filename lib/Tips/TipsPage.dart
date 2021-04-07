@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 // ignore: must_be_immutable
 class TipsPage extends StatelessWidget {
   static const routName = "TipsPage";
@@ -33,28 +34,26 @@ class TipsPage extends StatelessWidget {
           ),
         ),
         body: Card(
-          color: Colors.white,          shape:
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+          color: Colors.white,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
           elevation: 5,
           margin: EdgeInsets.all(5),
           child: Column(
             children: [
-
               SizedBox(
                 height: 5,
               ),
-              Container(
-                height: 500,
-                width: double.infinity,
+              Expanded(
                 child: ListView.builder(
                   padding: EdgeInsets.all(4),
 
                   itemBuilder: (ctx, index) => Card(
                     elevation: 3,
-
                     child: Row(
                       children: [
-                        SizedBox(width: 10,),
+                        SizedBox(
+                          width: 10,
+                        ),
                         Expanded(
                           child: Text(
                             description[index],
@@ -68,37 +67,32 @@ class TipsPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  itemCount:
-                  description.length, //TipslPage.description.length,
+                  itemCount: description.length, //TipslPage.description.length,
                 ),
-
               ),
-              Row(
-                children: [
-                  SizedBox(width: 120,),
-                  // Icon(Icons.share,color: Colors.deepOrange),
-                  SizedBox(width: 15,),
-                  // ignore: deprecated_member_use
-                  RaisedButton(
-                      child: Text("مشاركة",
-                        style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w800,
-                            fontFamily: "Cairo"),),
-                      color: Colors.blue,
-                      elevation: 7,
-                      onPressed: () {
-                        RenderBox box = context.findRenderObject();
-                        Share.share(
-                          title_description,
-                          subject:title_description,
-                          sharePositionOrigin:
-                          box.localToGlobal(Offset.zero) &
-                          box.size,
-                        );
-                      }),
-                ],
+              Align(
+                alignment: Alignment.center,
+                // ignore: deprecated_member_use
+                child: RaisedButton(
+                    child: Text(
+                      "مشاركة",
+                      style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w800,
+                          fontFamily: "Cairo"),
+                    ),
+                    color: Colors.blue,
+                    elevation: 7,
+                    onPressed: () {
+                      RenderBox box = context.findRenderObject();
+                      Share.share(
+                        title_description,
+                        subject: title_description,
+                        sharePositionOrigin:
+                            box.localToGlobal(Offset.zero) & box.size,
+                      );
+                    }),
               ),
             ],
           ),

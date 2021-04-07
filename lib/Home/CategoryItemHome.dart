@@ -1,6 +1,4 @@
-import 'package:daleel_yemen_cairo/Notification/Notification.dart';
 import 'package:daleel_yemen_cairo/Sections/Section.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
 class CategoryItemHome extends StatelessWidget {
@@ -19,7 +17,6 @@ class CategoryItemHome extends StatelessWidget {
   );
 
   void selectHome(BuildContext ctx) {
-    // Navigator.push(ctx,MaterialPageRoute(builder: (context) => Section  (id:home_id,title:home_title,newCollection:newCollection)),);
 
     Navigator.of(ctx).pushNamed(Section.routName, arguments: {
       "home_id": home_id,
@@ -27,15 +24,7 @@ class CategoryItemHome extends StatelessWidget {
       "newCollection":newCollection,
     });
   }
-  getMyToken()async{
-    final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
-    //String token = '';
-    print("get my token ");
-    await _firebaseMessaging.getToken().then((deviceToken) {
-      print("The token is here: $deviceToken" );
-    });
 
-  }
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -45,7 +34,7 @@ class CategoryItemHome extends StatelessWidget {
           elevation: 7,
           color: Colors.green.withOpacity(0.7),
           child: Container(
-            padding: EdgeInsets.all(15),
+            padding: EdgeInsets.all(10),
             margin: EdgeInsets.all(1),
             child: Row(
               // mainAxisAlignment: MainAxisAlignment.center,
@@ -58,13 +47,15 @@ class CategoryItemHome extends StatelessWidget {
                 SizedBox(
                   width: 10,
                 ),
-                Text(
-                  home_title,
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.blue,
-                      fontWeight: FontWeight.w700,
-                      fontFamily: "Cairo"),
+                Expanded(
+                  child: Text(
+                    home_title,
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.blue,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: "Cairo"),
+                  ),
                 ),
               ],
             ),
@@ -81,13 +72,9 @@ class CategoryItemHome extends StatelessWidget {
           ),
         ),
         onTap: () {
-          print (" YES   ---------------------");
-          PushNotificationClass notificationClass = new PushNotificationClass();
-          getMyToken();
-          notificationClass.configerFirebaseListners();
+
           selectHome(context);
-          // final route = MaterialPageRoute(builder: (context) => Section());
-          // Navigator.push(context, route);
+
         });
   }
 }

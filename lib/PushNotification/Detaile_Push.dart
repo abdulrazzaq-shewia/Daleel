@@ -31,8 +31,12 @@ class DetailsPush extends StatelessWidget {
       throw 'Could not launch $url';
     }
   }
+
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
     final Map<String, Object> data = ModalRoute.of(context).settings.arguments;
     id = data["id"];
     image = data["image"];
@@ -66,7 +70,7 @@ class DetailsPush extends StatelessWidget {
                 height: 10,
               ),
               Container(
-                height: 200,
+                height: height / 4,
                 child: Image.network(
                   image,
                   // fit: BoxFit.cover,
@@ -78,13 +82,10 @@ class DetailsPush extends StatelessWidget {
               Column(
                 children: [
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+                    margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
                     child: Row(
                       children: [
-                        // Icon(
-                        //   Icons.person,
-                        //   color: Colors.blue,
-                        // ),
+
                         SizedBox(
                           width: 10,
                         ),
@@ -109,13 +110,10 @@ class DetailsPush extends StatelessWidget {
                     color: Colors.grey,
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+                    margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
                     child: Row(
                       children: [
-                        // Icon(
-                        //   Icons.home_repair_service,
-                        //   color: Colors.green,
-                        // ),
+
                         SizedBox(
                           width: 10,
                         ),
@@ -144,104 +142,81 @@ class DetailsPush extends StatelessWidget {
                   SizedBox(
                     height: 10,
                   ),
-                  Container(
-                    height: 50,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: [
-                        Row(
-                          children: [
-                            SizedBox(
-                              width: 20,
-                            ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
 
-                            // ignore: deprecated_member_use
-                            RaisedButton(
-                              color: Colors.green,
-                              elevation: 5,
-                              onPressed: () async => {
-                                phoneCall(phone),
-                              },
-                              child: Text(
-                                "إتصال",
-                                style: TextStyle(
-                                    fontSize: 18,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w900,
-                                    fontFamily: "Cairo"),
-                              ),
-                            ),
 
-                            Row(
-                              children: [
-                                // Icon(Icons.share,color: Colors.deepPurple),
-                                SizedBox(
-                                  width: 15,
-                                ),
-                                // ignore: deprecated_member_use
-                                RaisedButton(
-                                    child: Text(
-                                      "مشاركة",
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w800,
-                                          fontFamily: "Cairo"),
-                                    ),
-                                    color: Colors.blue,
-                                    elevation: 4,
-                                    onPressed: () {
-                                      RenderBox box =
-                                          context.findRenderObject();
-                                      Share.share(
-                                        title +
-                                            "\n " +
-                                            description +
-                                            "\n " +
-                                            "لمعرفة باقي التفاصيل يرجى تنزيل التطبيق من الرابط" +
-                                            "\n " +
-                                            "رابط التطبيق",
-                                        subject: description,
-                                        sharePositionOrigin:
-                                            box.localToGlobal(Offset.zero) &
-                                                box.size,
-                                      );
-                                    }),
-                              ],
-                            ),
-
-                            Row(
-                              children: [
-                                SizedBox(
-                                  width: 15,
-                                ),
-                                // ignore: deprecated_member_use
-                                RaisedButton(
-                                  child: Text(
-                                    "شكوى",
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w800,
-                                        fontFamily: "Cairo"),
-                                  ),
-                                  color: Colors.deepOrange,
-                                  elevation: 4,
-                                  onPressed: () {
-                                    launchWhatsapp(
-                                        number: "+201559091400",
-                                        message: "تقديم شكوى بخصوص :" +
-                                            "\n " +
-                                            title+
-                                            "\n ");
-                                  },
-                                ),
-                              ],
-                            ),
-                          ],
+                      // ignore: deprecated_member_use
+                      RaisedButton(
+                        color: Colors.green,
+                        elevation: 5,
+                        onPressed: () async => {
+                          phoneCall(phone),
+                        },
+                        child: Text(
+                          "إتصال",
+                          style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w900,
+                              fontFamily: "Cairo"),
                         ),
-                      ],
-                    ),
+                      ),
+
+                      // ignore: deprecated_member_use
+                      RaisedButton(
+                          child: Text(
+                            "مشاركة",
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: "Cairo"),
+                          ),
+                          color: Colors.blue,
+                          elevation: 4,
+                          onPressed: () {
+                            RenderBox box =
+                                context.findRenderObject();
+                            Share.share(
+                              title +
+                                  "\n " +
+                                  description +
+                                  "\n " +
+                                  "لمعرفة باقي التفاصيل يرجى تنزيل التطبيق من الرابط" +
+                                  "\n " +
+                                  "رابط التطبيق",
+                              subject: description,
+                              sharePositionOrigin:
+                                  box.localToGlobal(Offset.zero) &
+                                      box.size,
+                            );
+                          }),
+
+
+                      // ignore: deprecated_member_use
+                      RaisedButton(
+                        child: Text(
+                          "شكوى",
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w800,
+                              fontFamily: "Cairo"),
+                        ),
+                        color: Colors.deepOrange,
+                        elevation: 4,
+                        onPressed: () {
+                          launchWhatsapp(
+                              number: "+201559091400",
+                              message: "تقديم شكوى بخصوص :" +
+                                  "\n " +
+                                  title +
+                                  "\n ");
+                        },
+                      ),
+                    ],
                   ),
                 ],
               ),
