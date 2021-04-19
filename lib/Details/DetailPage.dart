@@ -204,28 +204,6 @@ class DetailPage extends StatelessWidget {
 
                   // ignore: deprecated_member_use
                   RaisedButton(
-                    child: Text(
-                      "شكوى",
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w800,
-                          fontFamily: "Cairo"),
-                    ),
-                    color: Colors.deepOrange,
-                    elevation: 4,
-                    onPressed: () {
-                      launchWhatsapp(
-                          number: "+201559091400",
-                          message: "تقديم شكوى بخصوص :" +
-                              "\n " +
-                              name +
-                              "\n ");
-                    },
-                  ),
-
-                  // ignore: deprecated_member_use
-                  RaisedButton(
                       child: Text(
                         "مشاركة",
                         style: TextStyle(
@@ -252,6 +230,28 @@ class DetailPage extends StatelessWidget {
                                   box.size,
                         );
                       }),
+
+                  // ignore: deprecated_member_use
+                  RaisedButton(
+                    child: Text(
+                      "شكوى",
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w800,
+                          fontFamily: "Cairo"),
+                    ),
+                    color: Colors.deepOrange,
+                    elevation: 4,
+                    onPressed: () {
+                      launchWhatsapp(
+                          number: "+201559091400",
+                          message: "تقديم شكوى بخصوص :" +
+                              "\n " +
+                              name +
+                              "\n ");
+                    },
+                  ),
                 ],
               ),
               // ignore: deprecated_member_use

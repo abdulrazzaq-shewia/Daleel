@@ -47,7 +47,7 @@ class _PViewState extends State<PView> {
     Data(
       title: "دليل اليمنيين الشامل في مصر",
       description:
-          "لاتتردد في تجرية التطبيق وإضافة ملاحظاتك لتحسين جودة التطبيقلاتتردد في تجرية التطبيق وإضافة ملاحظاتك لتحسين جودة التطبيقلاتتردد في تجرية التطبيق وإضافة ملاحظاتك لتحسين جودة التطبيقلاتتردد في تجرية التطبيق وإضافة ملاحظاتك لتحسين جودة التطبيقلاتتردد في تجرية التطبيق وإضافة ملاحظاتك لتحسين جودة التطبيقلاتتردد في تجرية التطبيق وإضافة ملاحظاتك لتحسين جودة التطبيقلاتتردد في تجرية التطبيق وإضافة ملاحظاتك لتحسين جودة التطبيق",
+          "لاتتردد في تجرية التطبيق وإضافة ملاحظاتك لتحسين جودة التطبيق",
       image: "assets/images/OnBording3.png",
       iconData: Icons.add_location_outlined,
     ),
@@ -87,7 +87,7 @@ class _PViewState extends State<PView> {
                                 padding: EdgeInsets.symmetric(horizontal: 10),
                                 margin: EdgeInsets.all(10),
                                 width: width,
-                                height: height/1.7,
+                                height: height / 1.7,
                                 child: Card(
                                   elevation: 10,
                                   color: Colors.white.withOpacity(0.15),
@@ -189,39 +189,39 @@ class _PViewState extends State<PView> {
         ));
   }
 }
-
-class Indicator extends StatelessWidget {
-  final int index;
-  Indicator(this.index);
-  @override
-  Widget build(BuildContext context) {
-
-
-
-    return Align(
-      alignment: Alignment(0, 0.7),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          buildContainer(0, index == 0 ? Colors.green : Colors.red),
-          buildContainer(1, index == 1 ? Colors.green : Colors.red),
-          buildContainer(2, index == 2 ? Colors.green : Colors.red),
-        ],
-      ),
-    );
-  }
-
-  Widget buildContainer(int i, Color color) {
-    return index == i
-        ? Icon(Icons.arrow_forward_ios, color: Colors.deepOrange)
-        : Container(
-            margin: EdgeInsets.all(5),
-            height: 10,
-            width: 10,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              shape: BoxShape.circle,
-            ),
-          );
-  }
-}
+//
+// class Indicator extends StatelessWidget {
+//   final int index;
+//   Indicator(this.index);
+//   @override
+//   Widget build(BuildContext context) {
+//
+//
+//
+//     return Align(
+//       alignment: Alignment(0, 0.7),
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         children: [
+//           buildContainer(0, index == 0 ? Colors.green : Colors.red),
+//           buildContainer(1, index == 1 ? Colors.green : Colors.red),
+//           buildContainer(2, index == 2 ? Colors.green : Colors.red),
+//         ],
+//       ),
+//     );
+//   }
+//
+//   Widget buildContainer(int i, Color color) {
+//     return index == i
+//         ? Icon(Icons.arrow_forward_ios, color: Colors.deepOrange)
+//         : Container(
+//             margin: EdgeInsets.all(5),
+//             height: 10,
+//             width: 10,
+//             decoration: BoxDecoration(
+//               color: Colors.white,
+//               shape: BoxShape.circle,
+//             ),
+//           );
+//   }
+// }

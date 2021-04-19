@@ -36,7 +36,7 @@ class _SplashState extends State<Splash> {
                     ),
                     loaderColor: Colors.deepPurpleAccent,
                     image: Image.network(splash.image, fit: BoxFit.contain),
-                    photoSize: 150,
+                    photoSize: 100,
                     loadingText: Text(
                       "جارٍ التحميل",
                       style: TextStyle(

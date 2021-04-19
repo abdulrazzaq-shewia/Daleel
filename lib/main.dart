@@ -23,7 +23,10 @@ void main() async {
 
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: screen,
+
+          home: screen,
+
+
         routes: {
           "/a": (ctx) => HomePage(),
           "/b": (ctx) => Splash(),

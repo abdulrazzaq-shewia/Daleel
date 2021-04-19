@@ -65,8 +65,8 @@ android {
         versionName flutterVersionName
         multiDexEnabled true
     }
-       signingConfigs {
-       release {
+    signingConfigs {
+        release {
            keyAlias keystoreProperties['keyAlias']
            keyPassword keystoreProperties['keyPassword']
            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
@@ -95,4 +95,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics:17.2.2'
     //implementation 'com.google.firebase:firebase-messaging:20.1.5'
     implementation 'com.google.firebase:firebase-messaging:20.1.0'
+    implementation 'com.google.android.material:material:1.0.0'
+
+
 }

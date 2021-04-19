@@ -96,7 +96,8 @@ class _HomePageState extends State<HomePage> {
                 child: MyCarousel(),
               ),
               Container(
-                height: height/8,
+                height: height/8.5,
+                width: width,
                 child: CategoryScreenTips(),
               ),
               Container(

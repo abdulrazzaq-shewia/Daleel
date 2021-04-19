@@ -37,7 +37,7 @@ class CategoryItemTips extends StatelessWidget {
         color: Colors.indigo.withOpacity(0.6),
         child: Container(
           height: height,
-          width: width/4.5,
+          width: width/4,
           padding: EdgeInsets.all(4),
           margin: EdgeInsets.all(1),
           child: Column(
